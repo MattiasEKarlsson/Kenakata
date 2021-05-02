@@ -1,0 +1,60 @@
+﻿<div id="item">
+    <img id="image1" src="/Assets/Images/Product2.svg" class="" alt="...">
+    <footer id="footer">Women's collection</footer>
+    <div class="main-div">
+
+        <div class="second-div">
+
+            <ul id="ul2" class="ul2">
+                <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+            </ul>
+
+            <div id="addtocart" class="addtocart">
+                <p>Add to cart</p>
+            </div>
+
+
+            <ul class="ul1">
+                <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                <li id="n1"><i data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                <li><a href="#"><i data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></a></li>
+                <li><i data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                <li><i id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+            </ul>
+
+        </div>
+
+        <div class="third-div">
+            <ul id="infodiv">
+                <li><p id="newlook">New Look Mens fashion</p></li>
+                <li><div id="categorydiv">Fashion</div></li>
+                <li><p>$229</p></li>
+                <li><div class="fourth-div">$179</div></li>
+
+            </ul>
+
+            <ul id="stardiv">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="far fa-star"></i></li>
+                <li><i class="far fa-star"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+
+    async Task showhidecolors()
+    {
+        await JSRuntime.InvokeVoidAsync(identifier: "showhidecolors");
+    }
+
+
+}

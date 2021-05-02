@@ -1,0 +1,73 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime
+
+@functions{
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeAsync<object>("initializeCarousel");
+            
+            firstRender = false;
+        }
+    }
+
+}
+
+
+
+
+<MoreFunSection />
+<StickyButton />
+<InfoSquares />
+<Kenakata.Shared.Textbanner.Shopbycategory />
+<Carouselgrid />
+<Kenakata.Shared.Textbanner.Newarrivals />
+<NewCarousel />
+<NewShop30Off />
+<Kenakata.Shared.Textbanner.Featuredproducts />
+<FeaturedCarousel/>
+<FlashSale50 />
+<Kenakata.Shared.Textbanner.Topsellersbanner />
+<Topsellers />
+<BrandCarousel />
+<BlogCarusel />
+<Brands />
+<Subscribe />
+
+
+
+
+
+@code{
+    private ShoppingCart ShoppingCart { get; set; }
+    private WishlistitemModel wishlistItems { get; set; }
+    private CompareModel CompareList { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ShoppingCart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+        if(ShoppingCart == null)
+        {
+            ShoppingCart = new ShoppingCart();
+            await session.SetItemAsync("MyShoppingCart", ShoppingCart);
+        }
+        
+        wishlistItems = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+        if (wishlistItems == null)
+        {
+            wishlistItems = new WishlistitemModel();
+            await session.SetItemAsync("WishlistItems", wishlistItems);
+        }
+
+        CompareList = await session.GetItemAsync<CompareModel>("MyCompareList");
+        if (CompareList == null)
+        {
+            CompareList = new CompareModel();
+            
+            await session.SetItemAsync("MyCompareList", CompareList);
+        }
+
+
+    }
+}

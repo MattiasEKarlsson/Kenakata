@@ -1,0 +1,440 @@
+﻿
+@implements IDisposable
+
+
+<div id="lists" Style="width:auto; height: auto; margin-left:2rem;">
+
+    @if (standardView)
+    {
+        <RadzenDataList WrapItems="true" AllowPaging="false" Data="@products" TItem="Product">
+            <Template Context="product">
+                <RadzenCard Style="width:250px; height:300px; padding:0; border-radius:10px; border:none;">
+                    <div id="itemstandard">
+                        <img style="width: 250px; height: 250px;" id="image1" src="@product.Picture" class="" alt="...">
+                        <footer id="footer">@product.ProductName</footer>
+                        <div class="main-div">
+
+                            <div class="second-div">
+
+                                <ul id="ul2" class="ul2">
+                                    <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                                </ul>
+
+                                <div id="addtocart" class="addtocart">
+                                    <p>Add to cart</p>
+                                </div>
+
+
+                                <ul class="ul1">
+                                    <li><i class="fas fa-circle colors"></i></li>
+                                    <li id="n1"><i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                                    <li><i @onclick="@(() => GoToProduct(product.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                                    <li><i data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                                    <li><i id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" @onclick="@(() => AddProduct(product.Id))" class="fas fa-cart-plus"></i></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="third-div">
+                                <ul id="infodiv">
+                                    <li><p id="newlook">New Look Mens fashion</p></li>
+                                    <li><div id="categorydiv">Fashion</div></li>
+                                    <li><p>$@product.OldPrize</p></li>
+                                    <li><div class="fourth-div">$@product.Price</div></li>
+
+                                </ul>
+                                <ul id="stardiv">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="far fa-star"></i></li>
+                                    <li><i class="far fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </RadzenCard>
+            </Template>
+        </RadzenDataList>
+    }
+
+    @if (bigView)
+    {
+        <RadzenDataList WrapItems="true" AllowPaging="false" Data="@products" TItem="Product">
+            <Template Context="product">
+                <RadzenCard Style="width: 400px; height: 400px; padding: 0; border-radius: 10px; margin:.25rem; border:none;">
+                    <div id="itembig">
+                        <img src="@product.Picture" class="" alt="...">
+                        <footer id="footer">@product.ProductName</footer>
+                        <div class="main-div">
+
+                            <div class="second-div">
+
+                                <ul id="ul2" class="ul2">
+                                    <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                                    <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                                </ul>
+
+                                <div id="addtocart" class="addtocart">
+                                    <p>Add to cart</p>
+                                </div>
+
+
+                                <ul class="ul1">
+                                    <li><i class="fas fa-circle colors"></i></li>
+                                    <li id="n1"><i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                                    <li><i @onclick="@(() => GoToProduct(product.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                                    <li><i data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                                    <li><i id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" @onclick="@(() => AddProduct(product.Id))" class="fas fa-cart-plus"></i></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="third-div">
+
+                                <ul id="infodiv">
+                                    <li><p id="newlook">New Look Mens fashion</p></li>
+                                    <li><div id="categorydiv">Fashion</div></li>
+                                    <li><p>$@product.OldPrize</p></li>
+                                    <li><div class="fourth-div">$@product.Price</div></li>
+
+                                </ul>
+
+                                <ul id="stardiv">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="far fa-star"></i></li>
+                                    <li><i class="far fa-star"></i></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </RadzenCard>
+            </Template>
+        </RadzenDataList>
+    }
+
+    @if (thinView)
+    {
+<div class="d-flex">
+    <RadzenDataList WrapItems="true" AllowPaging="false" Data="@products" TItem="Product">
+        <Template Context="product">
+
+
+            <RadzenCard Style="width:auto;">
+
+                <div id="thinitem" class="d-flex justify-content-between">
+                    <img style="width:65px; height:65px;" src="@product.Picture" alt="">
+                    <p class="text-wrap mt-3">@product.ProductName</p>
+
+                    <div class="ml-5 mt-3 hidd">@product.Price</div>
+                    <div class="hidd">
+                        <ul class="d-flex list-unstyled ml-5 mt-3">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="ml-5 mt-3 " @onclick="@(() => AddProduct(product.Id))"><i class="fas fa-cart-plus pointer"></i></div>
+                </div>
+
+            </RadzenCard>
+
+        </Template>
+    </RadzenDataList>
+</div>
+       
+        
+    }
+    <RadzenPager Count="count" PageSize="@pageSize" PageNumbersCount="10" PageChanged="@PageChanged" Style="margin-bottom:120px;" />
+</div>
+
+
+
+@code {
+
+    [Parameter]
+    public string cat { get; set; }
+
+    private int currentValue = 0;
+    private int prodquant = 0;
+    private decimal subtotal = 0;
+    private decimal pricquan = 0;
+    int pageSize = 12;
+    int count;
+    IEnumerable<Product> products;
+    List<Product> prds { get; set; }
+    RadzenCard card { get; set; }
+
+    private bool thinView { get; set; } = false;
+    private bool bigView { get; set; } = false;
+    private bool standardView { get; set; } = true;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Notifier.Notify += OnNotify;
+        prds = new List<Product>();
+
+
+        prds = await Http.GetFromJsonAsync<List<Product>>("https://kenakataapi.azurewebsites.net/api/products/");
+        await GetPageInfoAsync();
+        products = GetProducts(0, pageSize);
+
+        await redirectedFromMainPageGrid();
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("toolTips");
+        await JSRuntime.InvokeVoidAsync("showhidecolors");
+    }
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+
+    private async Task redirectedFromMainPageGrid()
+    {
+        var _url = NavManager.Uri;
+
+        if (_url.Contains("category"))
+        {
+            if (_url.Contains("men's"))
+            {
+                await GetByCategoryAsync("category", "men´s");
+            }
+
+            if (_url.Contains("women's"))
+            {
+                await GetByCategoryAsync("category", "women´s");
+            }
+
+            if (_url.Contains("kids"))
+            {
+                await GetByCategoryAsync("category", "kid´s");
+            }
+
+            if (_url.Contains("watches"))
+            {
+                await GetByCategoryAsync("category", "watches");
+            }
+
+            if (_url.Contains("sunglasses"))
+            {
+                await GetByCategoryAsync("category", "sunglasses");
+            }
+
+            if (_url.Contains("shoes"))
+            {
+                await GetByCategoryAsync("category", "shoes");
+            }
+
+            if (_url.Contains("hats"))
+            {
+                await GetByCategoryAsync("category", "hats");
+            }
+
+        }
+        if (_url.Contains("newest"))
+        {
+            await GetSortedProducts("newest");
+        }
+
+        if (_url.Contains("cheapest"))
+        {
+            await GetSortedProducts("cheapest");
+        }
+
+        if (_url.Contains("expensive"))
+        {
+            await GetSortedProducts("expensive");
+        }
+
+
+
+
+
+    }
+
+
+    private async Task GetPageInfoAsync()
+    {
+        var storage = await session.GetItemAsync<SessionStorageInfo>("SessionStorageInfo");
+
+
+        pageSize = storage.PageSize;
+
+        var pageLayout = storage.PageLayout;
+
+        switch (pageLayout)
+        {
+            case 1:
+                thinView = true;
+                standardView = false;
+                bigView = false;
+                break;
+
+            case 2:
+                bigView = true;
+                standardView = false;
+                thinView = false;
+                break;
+
+            case 3:
+                bigView = false;
+                standardView = true;
+                thinView = false;
+
+                break;
+        }
+
+
+
+    }
+
+    void PageChanged(PagerEventArgs args)
+    {
+        products = GetProducts(args.Skip, args.Top);
+
+    }
+
+    private void GoToProduct(int id)
+    {
+        NavManager.NavigateTo($"Product-Display/{id}", true);
+    }
+
+    IEnumerable<Product> GetProducts(int skip, int take)
+    {
+
+        count = prds.Count();
+        foreach (var p in prds)
+        {
+            p.Price = Math.Truncate(p.Price);
+            p.OldPrize = Math.Truncate(p.OldPrize);
+        }
+
+        return prds.Skip(skip).Take(take).ToList();
+    }
+
+    public async Task GetByCategoryAsync(string category, string aa)
+    {
+        prds = new List<Product>();
+
+
+        prds = await Http.GetFromJsonAsync<List<Product>>($"https://kenakataapi.azurewebsites.net/{category}/{aa}");
+        products = GetProducts(0, pageSize);
+
+        StateHasChanged();
+    }
+
+    public async Task GetByPrizeAsync(int maxprize)
+    {
+        prds = new List<Product>();
+
+
+        prds = await Http.GetFromJsonAsync<List<Product>>($"https://kenakataapi.azurewebsites.net/Maxprice/{maxprize}");
+        products = GetProducts(0, pageSize);
+        StateHasChanged();
+    }
+
+    private async Task addtoWishlist(int id)
+    {
+
+        var wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        if (wishlist.Items.Any(i => i.Id == id))
+        {
+            singlewishlistItem item = wishlist.Items.FirstOrDefault(i => i.Id == id);
+            wishlist.Items.Remove(item);
+            await session.SetItemAsync("WishlistItems", wishlist);
+        }
+
+        else
+        {
+            wishlist.Items.Add(new singlewishlistItem { Id = id });
+            await session.SetItemAsync("WishlistItems", wishlist);
+            await JSRuntime.InvokeVoidAsync(identifier: "wishlistheart1");
+        }
+
+    }
+
+    private async Task AddProduct(int id)
+    {
+        var cart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+        prodquant = 0;
+        subtotal = 0;
+        foreach (var item in cart.Items)
+        {
+            prodquant = prodquant + item.Quantity;
+            pricquan = item.Product.Price * item.Quantity;
+            subtotal = subtotal + pricquan;
+        }
+        var list = cart.Items.Where(x => x.Product.Id == id);
+        @if (list.Any())
+        {
+            var product = list.FirstOrDefault();
+            product.Quantity = product.Quantity + 1;
+            await session.SetItemAsync("MyShoppingCart", cart);
+
+
+        }
+        else
+        {
+            cart.Items.Add(new CartProduct { Product = products.FirstOrDefault(x => x.Id == id), Quantity = 1 });
+            await session.SetItemAsync("MyShoppingCart", cart);
+        }
+
+        prodquant = prodquant + 1;
+        subtotal = subtotal + products.FirstOrDefault(x => x.Id == id).Price;
+        subtotal = subtotal * cart.CouponDiscount;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = prodquant;
+
+
+
+    }
+    public async Task GetSortedProducts(string page)
+    {
+        prds = new List<Product>();
+        products = new List<Product>();
+
+        prds = await Http.GetFromJsonAsync<List<Product>>($"https://kenakataapi.azurewebsites.net/{page}");
+        products = GetProducts(0, pageSize);
+        StateHasChanged();
+
+    }
+
+
+
+
+
+}

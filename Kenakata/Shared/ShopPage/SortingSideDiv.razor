@@ -1,0 +1,279 @@
+﻿<div id="shoppingdiv">
+    <div>
+        <div id="filterbtn">
+            <p>
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target=".coll" aria-expanded="false" aria-controls="shop-sortsection">
+                    Filter
+                </button>
+            </p>
+        </div>
+
+        <!--SORT DIV SHOP-PAGE-->
+        <div id="shop-sortsection">
+            <div class="sortdiv collapse coll">
+                <div id="product-category">
+                    <h3>Product Category</h3>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","men´s"))">Men´s</button><span>99</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","women´s"))">Women´s</button><span>123</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","kid´s"))">Kids</button><span>54</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","hats"))">Hats</button><span>10</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","sunglasses"))">Sunglasses</button><span>18</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","shoes"))">Shoes</button><span>22</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("category","watches"))">Watches</button><span>81</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sortdiv collapse coll">
+                <div id="filter-by-price">
+                    <h3>Filter by Prize</h3>
+                    <div class="slidecontainer mb-3">
+                        <input class="slider" type="range" min="0" max="1000" @bind-value="currentValue" @bind-value:event="oninput" step="10">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p>Max Price: $ @currentValue</p>
+                        <button @onclick="@(() => listitems.GetByPrizeAsync(@currentValue))" id="filter-by-prizebtn">Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sortdiv collapse coll">
+                <div id="filter-by-color">
+                    <h3>Filter by Color</h3>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="black">
+                                Black
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","black"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>112</span>
+                    </div>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="white">
+                                White
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","white"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>132</span>
+                    </div>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="gray">
+                                Gray
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","gray"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>56</span>
+                    </div>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="green">
+                                Green
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","green"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>76</span>
+                    </div>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="orange">
+                                Orange
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","orange"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>32</span>
+                    </div>
+                    <div class="sortobject">
+                        <div>
+                            <label class="container" id="blue">
+                                Blue
+                                <button @onclick="@(() => listitems.GetByCategoryAsync("colour","blue"))"></button>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <span>89</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sortdiv collapse coll">
+                <div id="filter-by-size">
+                    <h3>Filter by Size</h3>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","x-small"))">XS</button><span>99</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","small"))">S</button><span>123</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","medium"))">M</button><span>54</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","large"))">L</button><span>10</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","x-large"))">XL</button><span>18</span>
+                    </div>
+                    <div class="sortobject">
+                        <button @onclick="@(() => listitems.GetByCategoryAsync("size","xx-large"))">XXL</button><span>22</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sortdiv collapse coll">
+                <div id="filter-by-brand">
+                    <h3>Filter by Brand</h3>
+                    <div class="d-flex">
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","levis"))">
+                                <img src="/Assets/Images/Mattias/Brands/Bexim.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","gant"))">
+                                <img src="/Assets/Images/Mattias/Brands/Lighton.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","ck"))">
+                                <img src="/Assets/Images/Mattias/Brands/Dismis.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","adidas"))">
+                                <img src="/Assets/Images/Mattias/Brands/Rosimo.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","boss"))">
+                                <img src="/Assets/Images/Mattias/Brands/Dallas.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="sortobject">
+                            <button @onclick="@(() => listitems.GetByCategoryAsync("brand","gant"))">
+                                <img src="/Assets/Images/Mattias/Brands/Concord.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sortdiv collapse coll">
+                <div id="filter-by-productstatus">
+                    <h3>Product Status</h3>
+                    <div class="sortobject">
+                        <input class="large" type="checkbox" id="onsale">
+                        <label for="onsale">On Sale</label>
+                    </div>
+                    <div class="sortobject">
+                        <input class="large" type="checkbox" id="instock">
+                        <label for="instock">In Stock</label>
+                    </div>
+                </div>
+            </div>
+            <div id="top-rated-products">
+
+                <span class="rated-header">
+                    Top Rated Products
+                </span>
+                <ul class="list-unstyled">
+                    <li class="mt-3">
+                        <div class="d-flex">
+                            <img class="rated-products me-2" src="/Assets/Images/Fredrik/TopRatedImages/t-shirt-placeholder.svg" alt="">
+                            <div>
+                                <p class="product-header">T-shirt Text</p>
+                                <div class="stars-1  mb-1 mt-1">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <p class="price">$190</p>
+                            </div>
+
+
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="d-flex">
+                            <img class="rated-products me-2" src="/Assets/Images/Fredrik/TopRatedImages/shoes-placeholder.svg" alt="">
+                            <div>
+                                <p class="product-header">Shoes Text</p>
+                                <div class="stars-1  mb-1 mt-1">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <p class="price">$190</p>
+                            </div>
+
+
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="d-flex">
+                            <img class="rated-products me-2" src="/Assets/Images/Fredrik/TopRatedImages/Product small thumb.svg" alt="">
+                            <div>
+                                <p class="product-header">Whatever that is Text</p>
+                                <div class="stars-1  mb-1 mt-1">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <p class="price">$190</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="listdiv">
+        <Listitems @ref="listitems"></Listitems>
+    </div>
+</div>
+
+    
+
+
+
+
+@code {
+    private int currentValue = 0;
+    Listitems listitems;
+
+}
+
+
+
+
+

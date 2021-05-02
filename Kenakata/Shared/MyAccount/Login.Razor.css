@@ -1,0 +1,175 @@
+﻿.my-account-login {
+    background-color: white;
+    height: auto;
+    width: auto;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+    .my-account-login .login-box {
+        height: 522px;
+        width: 350px;
+        background-color: #f6f6f6 !important;
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+@media(min-width:576px) {
+    .my-account-login .login-box {
+        width: 540px;
+    }
+}
+
+    .my-account-login #h1 {
+        font-size: 24px;
+    }
+
+    .my-account-login #h2 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .my-account-login span {
+        color: #20d3c2;
+    }
+
+    .my-account-login .login-name {
+        width: 300px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        border: none;
+        font-size:1.2rem;
+    }
+     @media(min-width:576px){
+        .my-account-login .login-name {
+            width: 480px;
+           
+        }
+    }
+
+    .my-account-login .input-btn {
+        background-color: #20d3c2;
+        color: white;
+        border-radius: 30px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 20px;
+        width: 300px;
+    }
+@media(min-width:576px) {
+    .my-account-login .input-btn {
+        width: 480px;
+    }
+}
+
+        .my-account-login .input-btn:hover {
+            background: #35c0b2;
+            color: white;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+
+    .my-account-login .save-submit {
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    .my-account-login .checkbox-box {
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    .my-account-login .checkbox-text {
+        padding-right: 50px;
+    }
+
+    .my-account-login .lost-box {
+        padding-left: 40px;
+    }
+@media(min-width:576px) {
+    .my-account-login .lost-box {
+        margin-left: 100px;
+    }
+}
+
+    .my-account-login .alternative-login-text {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-right: 50px;
+    }
+
+    .my-account-login .facebook-google {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-right: 40px;
+        
+    }
+
+    .my-account-login .link {
+        color: white;
+    }
+
+        .my-account-login .link:hover {
+            color: black;
+        }
+
+    .my-account-login .facebook-login {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        width: 500px;
+        height: 40px;
+        background-color: #3b5998;
+        border-radius: 5%;
+        margin-right: 3px;
+        padding-top: 8px;
+    }
+
+    .my-account-login .google-login {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        color: white;
+        width: 500px;
+        height: 40px;
+        background-color: #4285f4;
+        border-radius: 5%;
+        margin-left: 3px;
+        padding-top: 8px;
+    }
+
+    .my-account-login .logo {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+        .my-account-login .logo i {
+            padding-left: 10px;
+            margin-right: 20px;
+            color: white;
+        }
+        @media(min-width:576px){
+            .my-account-login .logo i {
+                margin-right: 35px;
+            }
+        }
+        label{
+            margin-top:10px;
+        }

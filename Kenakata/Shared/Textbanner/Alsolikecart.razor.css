@@ -1,0 +1,44 @@
+﻿@media(min-width: 1400px) {
+    .container {
+        width: 1140px;
+    }
+}
+
+@media(min-width: 1921px) {
+    .container {
+        width: 1320px;
+    }
+}
+
+.white-space {
+    height: 100px;
+}
+
+.textbanner {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+    .textbanner img {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .textbanner h3 {
+        font-size: 36px;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+        .textbanner h3 span {
+            color: #20D3C2;
+        }
+
+    .textbanner p {
+        margin-top: 1rem;
+    }

@@ -1,0 +1,498 @@
+﻿@inject IJSRuntime JSRuntime
+@inject TooltipService tooltipService
+@implements IDisposable
+
+<div class="container">
+    <div id="carousel-container">
+        <div id="itemcarousel" class="owl-carousel owl-theme" style="overflow:hidden;">
+
+            <div id="item">
+                <img id="image1" src="@prd1.Picture" class="" alt="...">
+                <footer id="footer">@prd1.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd1.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd1.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd1.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd1.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd1.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd1.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="item">
+                <img id="image1" src="@prd2.Picture" class="" alt="...">
+                <footer id="footer">@prd2.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd2.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd2.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd2.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd2.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd2.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd2.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="item">
+                <img id="image1" src="@prd3.Picture" class="" alt="...">
+                <footer id="footer">@prd3.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd3.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd3.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd3.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd3.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd3.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd3.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="item">
+                <img id="image1" src="@prd4.Picture" class="" alt="...">
+                <footer id="footer">@prd4.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd4.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd4.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd4.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd4.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd4.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd4.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="item">
+                <img id="image1" src="@prd5.Picture" class="" alt="...">
+                <footer id="footer">@prd5.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd5.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd5.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd5.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd5.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd5.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd5.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="item">
+                <img id="image1" src="@prd6.Picture" class="" alt="...">
+                <footer id="footer">@prd6.ProductName</footer>
+                <div class="main-div">
+
+                    <div class="second-div">
+
+                        <ul id="ul2" class="ul2">
+                            <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                            <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                        </ul>
+
+                        <div id="addtocart" class="addtocart">
+                            <p>Add to cart</p>
+                        </div>
+
+
+                        <ul class="ul1">
+                            <li><i @onclick="showhidecolors" class="fas fa-circle colors"></i></li>
+                            <li id="n1"><i @onclick="() => addtoWishlist(prd6.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist" class="far fa-heart"></i></li>
+                            <li><i @onclick="@(() => GoToProduct(prd6.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                            <li><i @onclick="() => OpenQuickviewModel(prd6.Id)" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                            <li><i @onclick="@(() => AddProduct(prd6.Id))" id="cart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="third-div">
+                        <ul id="infodiv">
+                            <li><p id="newlook">New Look Mens fashion</p></li>
+                            <li><div id="categorydiv">Fashion</div></li>
+                            <li><p>$@prd6.OldPrize</p></li>
+                            <li><div class="fourth-div">$@prd6.Price</div></li>
+
+                        </ul>
+
+                        <ul id="stardiv">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                            <li><i class="far fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@if (QuickviewModelOpen)
+{
+    <Quickview Id="@_productId" OnClose="OnQuickviewModelClose"></Quickview>
+}
+
+@code {
+
+
+
+
+
+    private void GoToProduct(int id)
+    {
+        NavManager.NavigateTo($"Product-Display/{id}", true);
+    }
+
+
+    private int _productId { get; set; }
+
+    public bool QuickviewModelOpen { get; set; }
+
+    private void OnQuickviewModelClose(bool accepted)
+    {
+        QuickviewModelOpen = false;
+        StateHasChanged();
+    }
+
+    private void OpenQuickviewModel(int id)
+    {
+        _productId = id;
+        QuickviewModelOpen = true;
+        StateHasChanged();
+    }
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("toolTips");
+        }
+    }
+
+
+    private int prodquant = 0;
+    private decimal subtotal = 0;
+    private decimal pricquan = 0;
+
+    Product product { get; set; }
+
+    Product prd1 { get; set; }
+    Product prd2 { get; set; }
+    Product prd3 { get; set; }
+    Product prd4 { get; set; }
+    Product prd5 { get; set; }
+    Product prd6 { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Notifier.Notify += OnNotify;
+        product = new Product();
+
+        await LoadProductsAsync();
+    }
+
+
+    private async Task LoadProductsAsync()
+    {
+        prd1 = new Product();
+        prd2 = new Product();
+        prd3 = new Product();
+        prd4 = new Product();
+        prd5 = new Product();
+        prd6 = new Product();
+
+        int id1 = 38;
+        int id2 = 31;
+        int id3 = 33;
+        int id4 = 22;
+        int id5 = 26;
+        int id6 = 34;
+
+        prd1 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id1}");
+        prd2 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id2}");
+        prd3 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id3}");
+        prd4 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id4}");
+        prd5 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id5}");
+        prd6 = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id6}");
+
+        prd1.Price = Math.Truncate(prd1.Price);
+        prd1.OldPrize = Math.Truncate(prd1.OldPrize);
+
+        prd2.Price = Math.Truncate(prd2.Price);
+        prd2.OldPrize = Math.Truncate(prd2.OldPrize);
+
+        prd3.Price = Math.Truncate(prd3.Price);
+        prd3.OldPrize = Math.Truncate(prd3.OldPrize);
+
+        prd4.Price = Math.Truncate(prd4.Price);
+        prd4.OldPrize = Math.Truncate(prd4.OldPrize);
+
+        prd5.Price = Math.Truncate(prd5.Price);
+        prd5.OldPrize = Math.Truncate(prd5.OldPrize);
+
+        prd6.Price = Math.Truncate(prd6.Price);
+        prd6.OldPrize = Math.Truncate(prd6.OldPrize);
+    }
+
+
+
+
+
+
+    async Task showhidecolors()
+    {
+        await JSRuntime.InvokeVoidAsync(identifier: "showhidecolors");
+    }
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+    private async Task addtoWishlist(int id)
+    {
+
+        var wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        if (wishlist.Items.Any(i => i.Id == id))
+        {
+            singlewishlistItem item = wishlist.Items.FirstOrDefault(i => i.Id == id);
+            wishlist.Items.Remove(item);
+            await session.SetItemAsync("WishlistItems", wishlist);
+        }
+
+        else
+        {
+            wishlist.Items.Add(new singlewishlistItem { Id = id});
+            await session.SetItemAsync("WishlistItems", wishlist);
+            await JSRuntime.InvokeAsync<object>("wishlistheart1");
+        }
+
+    }
+
+
+    private async Task AddProduct(int id)
+    {
+
+
+        var cart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+
+        var productSelect = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id}");
+
+        productSelect.Price = Math.Truncate(productSelect.Price);
+        productSelect.OldPrize = Math.Truncate(productSelect.OldPrize);
+
+        prodquant = 0;
+        subtotal = 0;
+        foreach (var item in cart.Items)
+        {
+            prodquant = prodquant + item.Quantity;
+            pricquan = item.Product.Price * item.Quantity;
+            subtotal = subtotal + pricquan;
+        }
+        var list = cart.Items.Where(x => x.Product.Id == id);
+        @if (list.Any())
+        {
+            var product = list.FirstOrDefault();
+            product.Quantity = product.Quantity + 1;
+            await session.SetItemAsync("MyShoppingCart", cart);
+        }
+        else
+        {
+            cart.Items.Add(new CartProduct { Product = productSelect, Quantity = 1 });
+            await session.SetItemAsync("MyShoppingCart", cart);
+        }
+
+        prodquant = prodquant + 1;
+        subtotal = subtotal + productSelect.Price;
+        subtotal = subtotal * cart.CouponDiscount;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = prodquant;
+
+
+
+
+    }
+}

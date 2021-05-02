@@ -1,0 +1,61 @@
+﻿<section class="my-account-login">
+    <div class="login-box">
+        <h1 id="h1">LOGIN</h1>
+        <EditForm Model="loginModel" OnValidSubmit="@SendLoginForm">
+            <DataAnnotationsValidator />
+            <label for="lname">Username or email <span>*</span></label><br />
+            <input @bind="loginModel.LoginName" class="login-name" /><br />
+            <div class="text-danger">
+                <ValidationMessage For="@(()=>loginModel.LoginName)" />
+            </div>
+            <label for="lname">Password <span>*</span></label><br />
+            <input @bind="loginModel.Password" type="password" class="login-name" /><br />
+            <div class="text-danger">
+                <ValidationMessage For="@(()=>loginModel.Password)" />
+            </div>
+
+            <input class="input-btn" type="submit" value="LOG IN" />
+            <div class="save-submit d-flex">
+                <input class="checkbox-box" type="checkbox" id="save" />
+                <label class="checkbox-text" for="save">Remember me</label><br />
+                <div class="lost-box">
+                    <p>Lost your password?</p>
+                </div>
+            </div>
+        </EditForm>
+        <div class="alternative-login-text">
+            <h2 id="h2">OR LOGIN WITH</h2>
+        </div>
+        <div class="facebook-google">
+            <div class="facebook-login">
+                <div class="logo">
+                    <a href="#"><i class="fa fa-facebook-square fa-lg"></i></a>
+                </div>
+                <a class="link" href="#">Facebook</a>
+            </div>
+            <div class="google-login">
+                <div class="logo">
+                    <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
+                </div>
+                <a class="link" href="#">Google</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+
+    public LoginModel loginModel;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        loginModel = new LoginModel();
+    }
+
+    private void SendLoginForm()
+    {
+        Console.WriteLine("USer LoggedIN");
+    }
+
+}

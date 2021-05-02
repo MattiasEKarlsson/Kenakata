@@ -1,0 +1,48 @@
+﻿
+@using System;
+@using System.Net;
+@using System.Net.Mail;
+@using System.Threading.Tasks;
+<!--Subscribe DIV-->
+<section id="subsection">
+    <div class="container">
+        <div class="subdiv">
+            <h3><span>SUBSCRIBE</span> NOW</h3>
+            <p>
+                Signup for awesome news about our new products and<br>
+                know our special discounts on products.
+            </p>
+            <label>
+                <input type="text" @bind="subscribeEmail.To" placeholder="Enter email address">
+                <button @onclick="SendEmail" class="mt-1 me-1">Subscribe</button>
+            </label>
+
+        </div>
+        <div class="empty"></div>
+    </div>
+
+</section>
+<!--Subscribe DIV END-->
+
+@code {
+    private SubscribeEmail subscribeEmail;
+
+    private async Task SendEmail()
+    {
+
+        await Http.PostAsJsonAsync<SubscribeEmail>("https://kenkataemailapi.azurewebsites.net/sendemail", subscribeEmail);
+        subscribeEmail = new SubscribeEmail();
+    }
+
+
+
+    protected override void OnInitialized()
+    {
+        subscribeEmail = new SubscribeEmail();
+    }
+
+    public class SubscribeEmail
+    {
+        public string To { get; set; }
+    }
+}

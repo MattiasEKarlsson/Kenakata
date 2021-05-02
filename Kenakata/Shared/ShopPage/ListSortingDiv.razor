@@ -1,0 +1,135 @@
+﻿
+
+
+<div id="list-sorting">
+    <div class="container-fluid bg-gray mt-5">
+        <div class="container p-5">
+            <div class="justify-content-between menu-list-sorting">
+                <div>
+                    <div class="shop-header">Shop</div>
+                    <div class="hidd"><a href="/">Home</a>/ Shop</div>
+                </div>
+
+                <ul id="sorting-ul" class="list-unstyled d-flex ">
+                    <li>
+                        <div class="number-select hidd">
+
+                            <span class="me-2">Show:</span>
+                            <label class="pointer product-list-number" for="select-9">
+                                <input @onclick="@(() => SetPagesAsync(9))" type="radio" id="select-9" name="product-list-number" hidden/>
+                                <span>9</span>
+                            </label>
+                            /
+                            <label class="pointer product-list-number" for="select-12">
+                                <input @onclick="@(() => SetPagesAsync(12))" type="radio" id="select-12" name="product-list-number" hidden checked/>
+                                <span>12</span>
+                            </label>
+                            /
+                            <label class="pointer product-list-number" for="select-18">
+                                <input @onclick="@(() => SetPagesAsync(18))" type="radio" id="select-18" name="product-list-number" hidden/>
+                                <span>18</span>
+                            </label>
+                            /
+                            <label class="pointer product-list-number" for="select-24">
+                                <input @onclick="@(() => SetPagesAsync(24))" type="radio" id="select-24" name="product-list-number" hidden/>
+                                <span>24</span>
+                            </label>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="list-select hidd">
+
+                            <label class="pointer ms-3 " for="select-default-list">
+                                <input @onclick="@(() => SetPagesLayoutAsync(1))" type="radio" id="select-default-list" name="list-selected" hidden/>
+                                <img src="/Assets/Images/Fredrik/ListSortingImages/Group 482.svg" alt="">
+                            </label>
+
+                            <label class="pointer" for="select-4style-list">
+                                <input @onclick="@(() => SetPagesLayoutAsync(2))" type="radio" id="select-4style-list" name="list-selected" hidden/>
+                                <img src="/Assets/Images/Fredrik/ListSortingImages/Group 483.svg" alt="">
+                            </label>
+
+                            <label class="pointer me-3" for="select-9style-list">
+                                <input @onclick="@(() => SetPagesLayoutAsync(3))" type="radio" id="select-9style-list" name="list-selected" hidden checked/>
+                                <img src="/Assets/Images/Fredrik/ListSortingImages/Group 484.svg" alt="">
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown ">
+                            <button class="btn dropdown-toggle sorting-select" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Default sorting
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" @onclick="@(() => LoadPageasync("cheapest"))">Cheapest</a></li>
+                                <li><a class="dropdown-item" @onclick="@(() => LoadPageasync("expensive"))">Expensive</a></li>
+                                <li><a class="dropdown-item" @onclick="@(() => LoadPageasync("newest"))">Newest</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+@code {
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var storage = await session.GetItemAsync<SessionStorageInfo>("SessionStorageInfo");
+        if (storage == null)
+        {
+            await SetSessionStorageAsync();
+        }
+        
+    }
+
+    public async Task SetSessionStorageAsync()
+    {
+        var storage = new SessionStorageInfo();
+
+        storage.PageSize = 12;
+        storage.PageLayout = 3;
+        storage.PageSorting = null;
+
+        await session.SetItemAsync("SessionStorageInfo", storage);
+    }
+        
+
+    public async Task SetPagesAsync(int page)
+    {
+        var storage = await session.GetItemAsync<SessionStorageInfo>("SessionStorageInfo");
+
+        storage.PageSize = page;
+
+        await session.SetItemAsync("SessionStorageInfo", storage);
+
+        NavManager.NavigateTo("/shop", true);
+    }
+
+    public async Task SetPagesLayoutAsync(int page)
+    {
+        var storage = await session.GetItemAsync<SessionStorageInfo>("SessionStorageInfo");
+
+        storage.PageLayout = page;
+
+        await session.SetItemAsync("SessionStorageInfo", storage);
+        NavManager.NavigateTo("/shop", true);
+    }
+
+    public async Task LoadPageasync(string page)
+    {
+        NavManager.NavigateTo($"/shop/{page}", true);
+
+    }
+
+   
+
+}

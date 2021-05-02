@@ -1,0 +1,52 @@
+﻿
+
+@media(min-width: 300px) {
+    .textbanner h3 {
+        font-size:30px!important;
+    }
+}
+
+@media(min-width: 450px) {
+    .textbanner h3 {
+        font-size: 36px!important;
+    }
+}
+
+@media(min-width: 1400px) {
+    .container {
+        width: 1140px;
+    }
+}
+
+
+.textbanner {
+    
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    padding: 0;
+}
+
+    .textbanner img {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .textbanner h3 {
+        font-size: 36px;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+        .textbanner h3 span {
+            color: #20D3C2;
+        }
+
+    .textbanner p {
+        margin-top: 1rem;
+    }

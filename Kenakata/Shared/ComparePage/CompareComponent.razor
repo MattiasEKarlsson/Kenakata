@@ -1,0 +1,218 @@
+﻿<div class="empty-space"></div>
+<div id="compare">
+    <div class="container">
+        <div class="d-flex mb-4">
+            <div>
+                <div class="empty-block"></div>
+                <div class="box-header">AVAILABILTY</div>
+                <div class="box-header">BRAND</div>
+                <div class="box-header">COLOR</div>
+            </div>
+            @if (comparelist != null)
+            {
+                foreach (var item in comparelist.Products)
+                {
+                    <div class="d-flex ">
+                        <div class="complete-card">
+                            <div class="compare-card">
+                                <div class="small-padding" @onclick="@(() => RemoveItem(item))"><img class="pointer" src="/Assets/Images/Fredrik/CompareImages/Close icon.svg" alt=""><span class="ms-3">Remove item</span></div>
+                                <img class="product-picture" src="@item.Picture" alt="">
+                                <div class="text-center mt-3">
+                                    <div>@item.ProductName</div>
+                                    <div class="stars">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="price">$@item.Price</div>
+                                        <div class="old-price">$@item.OldPrize</div>
+                                    </div>
+                                    <button class="mt-2  shop-btn color-green" @onclick="@(() => AddProduct(item.Id))"><img class="me-1" src="/Assets/Images/Fredrik/Product-DisplayImages/Cart icon.svg" alt=""> Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="box first-box"><img class="pb-1 pe-1" src="/Assets/Images/Fredrik/CompareImages/Path 336.svg" alt="">In Stock</div>
+                            <div class="box ">@item.Brand.BrandName</div>
+                            <div class="box">@item.Colour.ColourName</div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<div id="tablet-view">
+    <div class="container">
+            <div class="d-flex">
+                @if (comparelist != null)
+                {
+                    foreach (var item in comparelist.Products)
+                    {
+                        <div class="complete-card">
+                            <div class="compare-card">
+                                <div class="small-padding" @onclick="@(() => RemoveItem(item))"><img class="pointer mb-1" src="/Assets/Images/Fredrik/CompareImages/Close icon.svg" alt=""><span class="ms-3 remove-text">Remove item</span></div>
+                                <img class="image-w" src="@item.Picture" alt="">
+                                <div class="text-center mt-3">
+                                    <div class="product-header">@item.ProductName</div>
+                                    <div class="stars">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="price">$@item.Price</div>
+                                        <div class="old-price">$@item.OldPrize</div>
+                                    </div>
+                                    <button class="mt-2  shop-btn color-green" @onclick="@(() => AddProduct(item.Id))"><img class="me-1" src="/Assets/Images/Fredrik/Product-DisplayImages/Cart icon.svg" alt=""> Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="border pe-2  ps-2 mt-2 mb-2 ">
+                                <div class="d-flex justify-content-between mt-3 mb-3 pb-3">
+                                    <div>AVAILABILTY</div>
+                                    <div><img class="pb-1 pe-1" src="/Assets/Images/Fredrik/CompareImages/Path 336.svg" alt="">In Stock</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3 pb-3">
+                                    <div>BRAND</div>
+                                    <div>@item.Brand.BrandName</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div>COLOR</div>
+                                    <div>@item.Colour.ColourName</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+        </div>
+    </div>
+</div>
+
+<div id="mobile-view">
+    <div class="container">
+            <div>
+                @if (comparelist != null)
+                {
+                    foreach (var item in comparelist.Products)
+                    {
+
+                        <div class="complete-card">
+                            <div class="compare-card">
+                                <div class="small-padding" @onclick="@(() => RemoveItem(item))"><img class="pointer mb-1" src="/Assets/Images/Fredrik/CompareImages/Close icon.svg" alt=""><span class="ms-3 remove-text">Remove item</span></div>
+                                <img class="image-w" src="@item.Picture" alt="">
+                                <div class="text-center mt-3">
+                                    <div class="product-header">@item.ProductName</div>
+                                    <div class="stars">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="price">$@item.Price</div>
+                                        <div class="old-price">$@item.OldPrize</div>
+                                    </div>
+
+                                    <button class="mt-2  shop-btn color-green" @onclick="@(() => AddProduct(item.Id))"><img class="me-1" src="/Assets/Images/Fredrik/Product-DisplayImages/Cart icon.svg" alt=""> Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="border pe-2  ps-2 mt-2 mb-2 ">
+                                <div class="d-flex justify-content-between mt-3 mb-3 pb-3">
+                                    <div>AVAILABILTY</div>
+                                    <div><img class="pb-1 pe-1" src="/Assets/Images/Fredrik/CompareImages/Path 336.svg" alt="">In Stock</div>
+                                </div>
+
+
+                                <div class="d-flex justify-content-between mb-3 pb-3">
+                                    <div>BRAND</div>
+                                    <div>@item.Brand.BrandName</div>
+
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div>COLOR</div>
+                                    <div>@item.Colour.ColourName</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+        </div>
+    </div>
+</div>
+
+@code{
+    private CompareModel comparelist;
+    private int prodquant = 0;
+    private decimal subtotal = 0;
+    private decimal pricquan = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        Notifier.Notify += OnNotify;
+        comparelist = await session.GetItemAsync<CompareModel>("MyCompareList");
+    }
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+    private async Task RemoveItem(Product item)
+    {
+        comparelist.Products.Remove(item);
+        await session.SetItemAsync("MyCompareList", comparelist);
+        Notifier.CompareCounter = Notifier.CompareCounter - 1;
+    }
+
+    private async Task AddProduct(int id)
+    {
+
+
+        var cart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+        var product = comparelist.Products.FirstOrDefault(x => x.Id == id);
+        prodquant = 0;
+        pricquan = 0;
+        subtotal = 0;
+        foreach (var item in cart.Items)
+        {
+            prodquant = prodquant + item.Quantity;
+            pricquan = item.Product.Price * item.Quantity;
+            subtotal = subtotal + pricquan;
+        }
+        var list = cart.Items.Where(x => x.Product.Id == id);
+        @if (list.Any())
+        {
+            var specproduct = list.FirstOrDefault();
+            specproduct.Quantity = specproduct.Quantity + 1;
+            await session.SetItemAsync("MyShoppingCart", cart);
+            pricquan = specproduct.Product.Price * 1;
+        }
+        else
+        {
+            cart.Items.Add(new CartProduct { Product = product, Quantity = 1 });
+            await session.SetItemAsync("MyShoppingCart", cart);
+            pricquan = product.Price * 1;
+
+        }
+
+        prodquant = prodquant + 1;
+
+        subtotal = subtotal + pricquan;
+        subtotal = subtotal * cart.CouponDiscount;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = prodquant;
+
+    }
+}

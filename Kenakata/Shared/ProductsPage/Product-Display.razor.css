@@ -1,0 +1,461 @@
+﻿.empty-footer {
+    height: 120px;
+}
+
+#mobile-product-display {
+    padding: 20px;
+    display: inline;
+}
+
+#tablet-product-display {
+    padding: 20px;
+    display: none;
+}
+
+#product-display {
+    display: none;
+}
+
+
+
+
+
+.tooltip :focus {
+    display: none;
+}
+
+.bg-gray {
+    width: 400px;
+    height: 450px;
+}
+
+.image-tablet {
+    width: 300px;
+    height: 350px;
+}
+
+.image-phone {
+    width: 100%;
+    height: 100%;
+}
+
+.color-green {
+    background-color: #20D3C2;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.xl-picture {
+    position: relative;
+}
+
+    
+
+.popupicon {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.diffrent-angles {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    background-color: #F6F6F6;
+    margin-bottom: 15px;
+}
+
+.product-headers {
+    color: #20D3C2;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.short-descrip {
+    line-height: 1.75;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #20D3C2;
+    margin-bottom: 20px;
+    padding-right: 100px;
+}
+
+
+
+
+.extra-price {
+    font-size: 24px;
+    color: #20D3C2;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #AAAAAA;
+}
+
+.quantity {
+    padding-top: 20px;
+
+}
+
+    .quantity input {
+        border-top: 2px solid #AAAAAA;
+        border-bottom: 2px solid #AAAAAA;
+        border-left: 1px solid #AAAAAA;
+        border-right: none;
+        /* border: 0; */
+        text-align: center;
+        width: 30px;
+        font-size: 16px;
+        color: #43484D;
+        font-weight: 300;
+        height: 36px;
+    }
+
+.plus-btn {
+    width: 30px;
+    height: 36px;
+    background-color: #FFFFFF;
+    border-radius: 6px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border: 2px solid #AAAAAA;
+    cursor: pointer;
+}
+
+.minus-btn {
+    width: 30px;
+    height: 36px;
+    background-color: #FFFFFF;
+    border-radius: 6px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border: 2px solid #AAAAAA;
+    cursor: pointer;
+}
+
+    .plus-btn:hover, .minus-btn:hover {
+        color: #FFFFFF;
+        background-color: #20D3C2;
+    }
+
+    .minus-btn i {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+
+.plus-btn i {
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+    outline: 0;
+}
+
+.shop-btn {
+    border: none;
+    border-radius: 30px;
+    width: 147px;
+    height: 37px;
+    padding-right: 10px;
+}
+
+.mobile-shop-btn {
+    border: none;
+    border-radius: 30px;
+    width: 100%;
+    height: 37px;
+    margin-top: 20px;
+}
+
+
+.colors-div {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #AAAAAA;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.random-heart-div {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #AAAAAA;
+    margin-left: 30px;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    color: #AAAAAA;
+    cursor: pointer;
+}
+
+
+.random-heart-div .add-to-wishlist {
+    visibility: hidden;
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -60px;
+    background-color: #0E153D;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px 8px 12px;
+    font-size: 14px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+
+    .random-heart-div:hover .add-to-wishlist {
+        visibility: visible;
+    }
+
+    .random-heart-div .add-to-wishlist::after {
+        content: " ";
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #0E153D transparent transparent transparent;
+    }
+
+    .random-heart-div .add-to-compare {
+        visibility: hidden;
+        width: 160px;
+        bottom: 100%;
+        left: -8%;
+        margin-bottom: 5px;
+        margin-left: -60px;
+        background-color: #0E153D;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 12px 8px 12px;
+        font-size: 14px;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+
+    .random-heart-div:hover .add-to-compare {
+        visibility: visible;
+    }
+
+    .random-heart-div .add-to-compare::after {
+        content: " ";
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #0E153D transparent transparent transparent;
+    }
+
+
+.colors-div:hover {
+    background-color: #AAAAAA;
+    color: #FFFFFF;
+}
+
+.random-heart-div:hover {
+    background-color: #AAAAAA;
+    color: #FFFFFF;
+}
+
+.catagory-link {
+    text-decoration: none;
+    color: #20D3C2;
+}
+
+    .catagory-link:hover {
+        color: #20D3C2;
+    }
+
+.tag-design {
+    margin-right: 10px;
+    border: 1px solid #AAAAAA;
+    padding: 2px 10px 2px 10px;
+}
+
+.share-design {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #55ACEE;
+    color: #FFFFFF;
+    align-items: center;
+    padding: 4px 3px 4px 4px;
+    margin-right: 6px;
+}
+
+.share-design-ep {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #3B5999;
+    color: #FFFFFF;
+    align-items: center;
+    margin-right: 6px;
+    padding: 4px 4px 4px 4px;
+}
+
+.gp-color {
+    background-color: #BD081C;
+}
+
+.insta-color {
+    background-color: #0077B5;
+}
+
+.input-group{
+  width:auto;
+}
+
+@media (min-width: 768px) {
+
+
+    #mobile-product-display {
+        display: none;
+    }
+
+    #tablet-product-display {
+        display: inline;
+    }
+
+    .colors-div {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .short-descrip {
+        padding-bottom: 30px;
+    }
+
+
+    #tablet-product-display {
+        display: none;
+    }
+
+    #product-display {
+        display: inline;
+    }
+
+    .diffrent-angles {
+        display: none;
+    }
+
+    .colors-div {
+        margin-left: 32px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .quantity {
+        margin-right: 60px;
+    }
+
+    .diffrent-angles {
+        display: inline;
+    }
+
+    .container {
+        max-width: 1140px;
+    }
+
+    .shop-btn {
+        margin-left: 1rem;
+    }
+}
+
+
+/* Products TOPDIV */
+#products-topdiv {
+    font-family: "Roboto", sans-serif;
+    background-color: #0E153D;
+    color: white;
+}
+
+    #products-topdiv .container {
+        height: 140px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        display: none;
+    }
+
+    #products-topdiv button {
+        border: none;
+        background-color: transparent;
+        color: white;
+    }
+
+        #products-topdiv button:hover {
+            color: #20D3C2;
+        }
+
+    #products-topdiv .brandlink button {
+        width: 160px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: white;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+
+        #products-topdiv .brandlink button:hover {
+            background-color: gainsboro;
+            opacity: 0.6;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+    #products-topdiv .brandlink img {
+        width: 100px;
+        height: 30px;
+    }
+
+    #products-topdiv .brandlink label {
+        margin-left: 60px;
+    }
+@media (min-width: 768px) {
+    #products-topdiv .container {
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+    }
+
+}
+
+/* Products TOPDIV END */

@@ -1,0 +1,33 @@
+﻿.stars-1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: start;
+    font-size: 9px;
+}
+
+.rated-products {
+    width: 65px;
+    height: 65px;
+    background-color: #F6F6F6;
+    border-radius: 5%;
+}
+
+.product-header {
+    margin-bottom: 0px !important;
+}
+
+.rated-header {
+    color: #20D3C2;
+    font-weight: 500;
+}
+
+.price {
+    font-weight: 500;
+}
+
+.empty-footer {
+    height: 120px;
+}
+.fa-star {
+    color: #20D3C2;
+}

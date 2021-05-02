@@ -1,0 +1,134 @@
+﻿.flash-sale {
+    background: #0e153d;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .flash-sale span {
+        font-size: 30px;
+    }
+
+    .flash-sale .square {
+        height: 200px;
+        width: 200px;
+        margin-right: 5rem;
+        font-family: "Play", sans-serif;
+        background-color: #20d3c2;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .flash-sale .div1-test {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .flash-sale .box-circle {
+        margin-top: 100px;
+        margin-bottom: 0;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 20px;
+    }
+
+        .flash-sale .box-circle div {
+            margin: 2rem;
+            margin-bottom: 0;
+        }
+
+    .flash-sale .circle-1 {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        background-color: white;
+        border-radius: 50%;
+        border: 5px dotted #20d3c2;
+        padding-top: 25px;
+    }
+
+    .flash-sale .circle-2 {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        background-color: white;
+        border-radius: 50%;
+        border: 5px dotted #20d3c2;
+        padding-top: 25px;
+    }
+
+    .flash-sale .circle-3 {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        background-color: white;
+        border-radius: 50%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        border: 5px dotted #20d3c2;
+        padding-top: 25px;
+    }
+
+    .flash-sale .circle-4 {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        background-color: white;
+        border-radius: 50%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        border: 5px dotted #20d3c2;
+        padding-top: 25px;
+    }
+
+    .flash-sale button {
+        background-color: white;
+        color: #20d3c2;
+        height: 50px;
+        width: 150px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+        .flash-sale button:hover {
+            background: #20d3c2;
+            color: white;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+
+    .flash-sale .button-div {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }

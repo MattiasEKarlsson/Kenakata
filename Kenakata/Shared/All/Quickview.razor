@@ -1,0 +1,274 @@
+﻿
+
+@implements IDisposable
+
+
+
+
+<div class="modal fade show" id="myModal" style="display: block; background-color: rgba(14, 21, 61, .85);" aria-modal="true" role="dialog">
+    <div class="modal-dialog" style="max-width:900px; margin-top: 140px;">
+        <div class="modal-content">
+            <div id="quickview" class="">
+                <div class="container">
+                    <div>
+                        <div class="whitespace"></div>
+                        <div id="closebtn1"><i id="closebtn2" @onclick="ModelCancel" class="fas fa-times-circle"></i></div>
+
+                        <ul class="d-flex list-unstyled mb-0">
+                            <li id="images">
+                                <div class="xl-picture">
+                                    <img class="bg-gray" src="@product.Picture" alt="">
+                                    <div class="popupicon"><img src="/Assets/Images/Fredrik/Product-DisplayImages/Group 759.svg" alt=""></div>
+                                </div>
+
+                                <div id="smallimages">
+                                    <div id="simg">
+                                        <img class="diffrent-angles" src="/Assets/Images/Fredrik/Product-DisplayImages/shoes-placeholder.svg" alt="">
+                                    </div>
+                                    <div id="simg">
+                                        <img class="diffrent-angles" src="/Assets/Images/Fredrik/Product-DisplayImages/shoes-placeholder.svg" alt="">
+                                    </div>
+                                    <div id="simg">
+                                        <img class="diffrent-angles" src="/Assets/Images/Fredrik/Product-DisplayImages/shoes-placeholder.svg" alt="">
+                                    </div>
+                                    <div id="simg">
+                                        <img class="diffrent-angles" src="/Assets/Images/Fredrik/Product-DisplayImages/shoes-placeholder.svg" alt="">
+                                    </div>
+                                </div>
+
+
+                            </li>
+
+                            <li class="ms-4">
+                                <div id="reviewlogo">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="far fa-star"></i></li>
+                                        <li><i class="far fa-star"></i></li>
+                                    </ul>
+                                    <p>(3 customer reviews)</p>
+                                    <img src="/Assets/Images/Mattias/Brands/Bexim.svg" alt="logo">
+                                </div>
+                                <div>
+                                    <p class="product-headers">@product.ProductName</p>
+                                    <p class="short-descrip ">@product.ShortDescription</p>
+                                </div>
+                                <div class="d-flex ">
+                                    <div class="me-3  extra-price">$@product.Price</div>
+
+                                    <div class="me-4 mt-1 old-price">$@product.OldPrize</div>
+                                    <img class="mb-1" src="/Assets/Images/Fredrik/Product-DisplayImages/In stock.svg" alt="">
+                                    <div class="mt-1 ms-2">In Stock</div>
+                                </div>
+                                <div>
+                                    <div class="quantity d-flex">
+                                        <div class="input-group ">
+                                            <button class="minus-btn" type="button" name="button" @onclick="DecrementCount">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+
+                                            <input type="text" name="name" value="@currentCount" />
+                                            <button class="plus-btn me-3" type="button" name="button" @onclick="@IncrementCount">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+
+
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class=" ms-3  shop-btn color-green" @onclick="@AddProduct"><img class="me-1" src="/Assets/Images/Fredrik/Product-DisplayImages/Cart icon.svg" alt=""> Add to cart</button>
+                                            <div class="colors-div"><img src="/Assets/Images/Fredrik/Product-DisplayImages/Group 667.svg" alt=""></div>
+                                            <div class="random-heart-div"><i class="fas fa-random"></i></div>
+
+                                            <div class="random-heart-div">
+                                                <i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" class="far fa-heart"></i>
+
+                                                <div class="add-to-wishlist">Add to wishlist</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 mb-4">Catagory:<a class="catagory-link ms-1" href="">@category</a></div>
+
+                                <div class="mb-4">Tags:<span class="tag-design ms-4">@brand</span><span class="tag-design">@colour</span><span class="tag-design">@size</span></div>
+                                <div>
+                                    <span class="me-3">Share:</span>
+                                    <span>
+                                        <a class="share-design-ep" href="#"><i class="fab fa-facebook-f "></i></a>
+                                    </span>
+                                    <span>
+                                        <a class="share-design" href="#"><i class="fab fa-twitter"></i></a>
+                                    </span>
+                                    <span>
+                                        <a class="share-design gp-color" href="#"><i class="fab fa-google-plus-g"></i></a>
+                                    </span>
+                                    <span>
+                                        <a class="share-design insta-color" href="#"><i class="fab fa-instagram"></i></a>
+                                    </span>
+                                    <span>
+                                        <a class="share-design-ep" href="#"><i class="fab fa-reddit-square"></i></a>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@code{
+
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnClose { get; set; }
+    
+
+    private Task ModelCancel()
+    {
+        return OnClose.InvokeAsync(false);
+    }
+
+    private Task ModelOk()
+    {
+        return OnClose.InvokeAsync(true);
+    }
+
+
+    private Product product { get; set; }
+
+    private string category;
+    private string brand;
+    private string colour;
+    private string size;
+    private int currentCount = 1;
+    private int prodquant = 0;
+    private decimal subtotal = 0;
+    private decimal pricquan = 0;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            Notifier.Notify += OnNotify;
+            product = new Product();
+            var id = Id;
+            product = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id}");
+            product.Price = Math.Truncate(product.Price);
+            product.OldPrize = Math.Truncate(product.OldPrize);
+            category = product.Category.CategoryName;
+            brand = product.Brand.BrandName;
+            colour = product.Colour.ColourName;
+            size = product.Size.SizeName;
+
+        }
+        catch { }
+
+
+    }
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void DecrementCount()
+    {
+        @if (currentCount > 1)
+        {
+            currentCount--;
+
+
+        }
+        else
+        {
+
+        }
+    }
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+
+
+    private async Task addtoWishlist(int id)
+    {
+
+        var wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        if (wishlist.Items.Any(i => i.Id == id))
+        {
+            singlewishlistItem item = wishlist.Items.FirstOrDefault(i => i.Id == id);
+            wishlist.Items.Remove(item);
+            await session.SetItemAsync("WishlistItems", wishlist);
+        }
+
+        else
+        {
+            wishlist.Items.Add(new singlewishlistItem { Id = id });
+            await session.SetItemAsync("WishlistItems", wishlist);
+            await JSRuntime.InvokeVoidAsync(identifier: "wishlistheart1");
+        }
+
+    }
+
+
+    private async Task AddProduct()
+    {
+
+
+        var cart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+
+        prodquant = 0;
+        subtotal = 0;
+        foreach (var item in cart.Items)
+        {
+            prodquant = prodquant + item.Quantity;
+            pricquan = item.Product.Price * item.Quantity;
+            subtotal = subtotal + pricquan;
+        }
+        var list = cart.Items.Where(x => x.Product.Id == product.Id);
+        @if (list.Any())
+        {
+            var product = list.FirstOrDefault();
+            cart.Items.Remove(product);
+            product.Quantity = product.Quantity + currentCount;
+            cart.Items.Add(product);
+            await session.SetItemAsync("MyShoppingCart", cart);
+        }
+        else
+        {
+            cart.Items.Add(new CartProduct { Product = product, Quantity = currentCount });
+            await session.SetItemAsync("MyShoppingCart", cart);
+        }
+
+        prodquant = prodquant + currentCount;
+        pricquan = product.Price * currentCount;
+        subtotal = subtotal + pricquan;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = prodquant;
+
+        //NavManager.NavigateTo($"/Product-Display/{product.Id}", true);
+
+    }
+}

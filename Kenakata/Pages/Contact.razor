@@ -1,0 +1,15 @@
+﻿@page "/contact"
+
+    <ContactNavBar/>
+<StickyButton />
+    <ContactForm />
+    <Brands />
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initialize", null);
+        }
+    }
+}

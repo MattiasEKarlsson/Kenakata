@@ -1,0 +1,275 @@
+﻿
+@media(max-width: 768px) {
+    .container {
+        display:none;
+    }
+}
+
+@media(min-width: 768px) {
+    .container {
+        display:block;
+    }
+    .gallery {
+        height: 360px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 120px);
+        grid-column-gap: 6px;
+        margin-bottom: 3rem;
+    }
+}
+
+@media(min-width: 1200px) {
+    .container {
+        width: 1140px;
+        max-width: 1140px;
+    }
+    .gallery {
+        height: 660px;
+        /*display: grid;*/
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 220px);
+        grid-column-gap: 14px;
+    }
+}
+
+@media(min-width: 1400px) {
+
+
+    /*.gallery {
+        height: 660px;*/
+        /*display: grid;*/
+        /*grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 18vw);
+        grid-column-gap: 14px;
+    }*/
+}
+
+
+
+.container {
+    margin-top: 2.5rem;
+}
+
+/*.gallery {
+    height: 660px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 11vw);
+    grid-column-gap: 14px;
+}*/
+
+    .gallery .carousel {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+        .gallery .carousel .carousel-inner {
+            height: 100%;
+            width: 100%;
+        }
+
+            .gallery .carousel .carousel-inner .carousel-item {
+                height: 100%;
+                width: 100%;
+            }
+
+                .gallery .carousel .carousel-inner .carousel-item :hover {
+                    background-color: #0E153D;
+                    cursor: pointer;
+                }
+
+                .gallery .carousel .carousel-inner .carousel-item .item_img {
+                    object-fit: cover;
+                }
+
+    .gallery .item_img {
+        width: 100%;
+        height: 100%;
+        background-color: #EEEEEE;
+        border-radius: 10px;
+    }
+
+    .gallery .item1 {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item1 .item1div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 100px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item1 .item1div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .6rem;
+                margin-left: .8rem;
+            }
+
+    .gallery .item2 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item2 .item2div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 220px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item2 .item2div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .6rem;
+                margin-left: .8rem;
+            }
+
+    .gallery .item3 {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item3 .item3div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 220px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item3 .item3div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .6rem;
+                margin-left: .8rem;
+            }
+
+    .gallery .item4 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item4 .item4div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 220px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item4 .item4div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .6rem;
+                margin-left: .8rem;
+            }
+
+    .gallery .item5 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item5 .item5div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 100px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item5 .item5div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .6rem;
+                margin-left: .8rem;
+            }
+
+    .gallery .item6 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        display: flex;
+        align-items: flex-end;
+    }
+        
+
+        .gallery .item6 .item6div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 60px;
+            width: 220px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item6 .item6div h6 {
+                display: inline-block;
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .7rem;
+                margin-left: .8rem;
+            }
+
+            .gallery .item6 .item6div p {
+                color: #EEEEEE;
+                font-size: 14px;
+                margin-left: .8rem;
+            }
+
+    .gallery .item7 {
+        grid-column-start: 5;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        display: flex;
+        align-items: flex-end;
+    }
+
+        .gallery .item7 .item7div {
+            position: absolute;
+            background-color: #0E153D;
+            height: 40px;
+            width: 100px;
+            border-radius: 0px 10px 0px 10px;
+        }
+
+            .gallery .item7 .item7div h6 {
+                margin-bottom: 0;
+                text-align: start;
+                color: #20D3C2;
+                margin-top: .65rem;
+                margin-left: .8rem;
+            }

@@ -1,0 +1,129 @@
+﻿.my-account-register {
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    display:flex;
+    justify-content:center
+    
+}
+    .my-account-register .register-box {
+        height: 775px;
+        width: 350px;
+        background-color: #f6f6f6 !important;
+        padding-top: 30px;
+        padding-left: 30px;
+        margin-top:2rem;
+        
+    }
+@media(min-width:576px) {
+    .my-account-register .register-box {
+        height: 700px;
+        width: 540px;
+        margin-left: 0rem;
+        margin-top: 1rem;
+    }
+}
+
+@media(min-width:1200px) {
+    .my-account-register .register-box {
+        margin-left: 30px;
+        margin-top: 0rem;
+    }
+}
+
+    .my-account-register .h1 {
+        font-size: 24px;
+    }
+
+    .my-account-register span {
+        color: #20d3c2;
+    }
+
+    .my-account-register .text-1 {
+        font-size: 14px;
+        color: #777777;
+        margin-bottom: 15px;
+    }
+
+    .my-account-register .text-2 {
+        font-size: 14px;
+        color: #777777;
+        margin-bottom: 15px;
+    }
+
+    .my-account-register #privacy {
+        color: #20d3c2;
+    }
+
+        .my-account-register #privacy:hover {
+            color: black;
+        }
+
+    .my-account-register .user-name {
+        width: 300px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        border: none;
+        font-size: 1.2rem;
+    }
+    @media(min-width:576px){
+        .my-account-register .user-name {
+            width: 480px;
+        }
+    }
+    .my-account-register .email {
+        width: 300px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        border: none;
+        font-size: 1.2rem;
+    }
+@media(min-width:576px) {
+    .my-account-register .email {
+        width: 480px;
+    }
+}
+    .my-account-register .password {
+        width: 300px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        border: none;
+        font-size: 1.2rem;
+    }
+@media(min-width:576px) {
+    .my-account-register .password {
+        width: 480px;
+    }
+}
+    .my-account-register .input-btn {
+        background-color: #20d3c2;
+        color: white;
+        border-radius: 30px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        padding: 15px;
+        margin-top: 30px;
+        font-size: 20px;
+        width: 300px;
+    }
+@media(min-width:576px) {
+    .my-account-register .input-btn {
+        width: 480px;
+    }
+}
+        .my-account-register .input-btn:hover {
+            background: #20d3c2;
+            color: black;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+label {
+    margin-top: 10px;
+}

@@ -1,0 +1,73 @@
+﻿.flash-sale-30 {
+    -ms-grid-columns: 50% 50%;
+    grid-template-columns: 50% 50%;
+    background: #eeeeee;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+
+    .flash-sale-30 .square {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 300px;
+        width: 200px;
+        margin-right: 14rem;
+        padding-top: 4rem;
+        font-family: "Play", sans-serif;
+        background-color: #20d3c2;
+        color: white;
+        text-align: center;
+    }
+
+    .flash-sale-30 span {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .flash-sale-30 button {
+        background-color: #0e153d;
+        color: white;
+        height: 50px;
+        width: 150px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+        .flash-sale-30 button:hover {
+            background: #162263;
+            color: white;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+
+    .flash-sale-30 .button-2 {
+        background-color: white;
+        color: #20d3c2;
+        height: 50px;
+        width: 150px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    .flash-sale-30 button-2:hover {
+        background: #20d3c2;
+        color: white;
+        -webkit-transition-delay: 100ms;
+        transition-delay: 100ms;
+    }
+
+    .flash-sale-30 .box-1 {
+        margin-top: 5rem;
+    }

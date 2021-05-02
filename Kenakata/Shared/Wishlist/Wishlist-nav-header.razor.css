@@ -1,0 +1,58 @@
+﻿#shopping-cart-process-div {
+    font-family: "Roboto", sans-serif;
+    background-color: #0E153D;
+    color: white;
+}
+
+    #shopping-cart-process-div .container {
+        height: 140px;
+      
+        display: flex;
+       
+        align-items: center;
+        
+        justify-content: center;
+    }
+
+.navlinkscontainer {
+    display: flex;
+}
+
+
+
+
+
+    .navlinkscontainer a {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+        
+    }
+        .navlinkscontainer a:hover {
+            color: #20D3C2;
+        }
+
+    .navlinkscontainer .active > a {
+        color: #20D3C2;
+    }
+    
+       
+
+    #shopping-cart-process-div img {
+        vertical-align: inherit;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    

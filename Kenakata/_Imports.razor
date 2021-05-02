@@ -1,0 +1,30 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Kenakata
+@using Kenakata.Models
+@using Kenakata.Shared
+@using Kenakata.Shared.FrontPage
+@using Kenakata.Shared.All
+@using Kenakata.Shared.ShopPage
+@using Kenakata.Shared.ProductsPage
+@using Kenakata.Shared.ContactPage
+@using Kenakata.Shared.MyAccount
+
+@using Radzen.Blazor
+@using Radzen
+@using Kenakata.Services
+
+@using Blazored.Modal
+@using Blazored.Modal.Services
+
+@inject NotifierService Notifier
+@inject NavigationManager NavManager
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+@inject Blazored.SessionStorage.ISessionStorageService session

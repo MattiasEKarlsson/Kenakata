@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Shared\NavMenu.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Shared\NavMenu.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.Modal" Version="6.0.1" />
+    <PackageReference Include="Blazored.SessionStorage" Version="1.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.3" PrivateAssets="all" />
+    <PackageReference Include="Radzen.Blazor" Version="3.1.9" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\Images\Mattias\404.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\alexandra-nicolae-MKXyRm-pK50-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\BorderZig.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Bexim.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Brand.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Dallas.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Dismis.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Lighton.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Brands\Rosimo.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\clay-banks-erurwRLJ44A-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\clem-onojeghuo-_XGvUmDGfQ4-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\docusign-gqzh0lSXo7g-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\dylann-hendricks-Lp5uluEANKU-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\24B.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\24W.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\Group 1155.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\OutlineB.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\outlineW.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\paymentB.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\info-pics\paymentW.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Logo.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\marek-piwnicki-c2PSeCMxGME-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\pawel-czerwinski-c-6bHBlbEJ8-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\Payment system.svg" />
+    <None Include="wwwroot\Assets\Images\Mattias\simon-lohmann-Nu1k-g7X2mU-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\vadim-sadovski-NmpUqeCzKKI-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Mattias\xps-uWFFw7leQNI-unsplash.jpg" />
+    <None Include="wwwroot\Assets\Images\Product1.svg" />
+    <None Include="wwwroot\Assets\Images\Product2.svg" />
+    <None Include="wwwroot\Assets\Images\Product3.svg" />
+    <None Include="wwwroot\Assets\Images\Product4.svg" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+﻿@page "/shopping-cart"
+
+
+
+
+<Kenakata.Shared.ShoppingCartPage.Shopping_cart_Checkout_Header />
+<StickyButton />
+<Kenakata.Shared.ShoppingCartPage.ShoppingCartList />
+
+<Brands />
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("shopcartcarousel");
+    }
+}

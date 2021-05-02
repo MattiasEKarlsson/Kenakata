@@ -1,0 +1,88 @@
+﻿.shop-section-1 {
+    background: #0e153d;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 500px;
+}
+
+    .shop-section-1 .shoe-box-1 {
+        margin-top: 10rem;
+    }
+
+    .shop-section-1 .hero-text-1 {
+        color: white;
+    }
+
+    .shop-section-1 span {
+        color: #20d3c2;
+    }
+
+    .shop-section-1 button {
+        background-color: white;
+        font-size: 20px;
+        color: #20d3c2;
+        height: 50px;
+        width: 150px;
+        border: none;
+        margin-top: 30px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+        .shop-section-1 button:hover {
+            background: #20d3c2;
+            color: white;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+
+    .shop-section-1 .box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-left: 150px;
+        padding-top: 100px;
+    }
+
+    .shop-section-1 .circle-1 {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        position: relative;
+        top: 70px;
+        left: 40px;
+        background-color: #20d3c2;
+        text-align: center;
+        padding-top: 25px;
+    }
+
+    .shop-section-1 .multicolor-1 {
+        color: white;
+        font-size: 30px;
+    }
+
+    .shop-section-1 .circle-2 {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        position: relative;
+        top: 150px;
+        left: 100px;
+        background-color: #162263;
+        text-align: center;
+        padding-top: 25px;
+    }
+
+    .shop-section-1 .multicolor-2 {
+        color: white;
+        font-size: 30px;
+    }
+
+    .shop-section-1 .photo-2 {
+        padding-top: 100px;
+    }

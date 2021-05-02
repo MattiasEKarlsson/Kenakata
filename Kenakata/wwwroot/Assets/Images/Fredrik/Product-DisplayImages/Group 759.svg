@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.828" height="22.828" viewBox="0 0 22.828 22.828">
+  <g id="Group_759" data-name="Group 759" transform="translate(-284.151 -470.202)">
+    <line id="Line_87" data-name="Line 87" x1="20" y2="20" transform="translate(285.565 471.616)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_622" data-name="Path 622" d="M0,0,20,20" transform="translate(285.565 471.616)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_320" data-name="Path 320" d="M313.611,495.753v3.909H309.7" transform="translate(-8.046 -8.046)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_321" data-name="Path 321" d="M285.565,495.753v3.909h3.909" transform="translate(0 -8.046)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_322" data-name="Path 322" d="M285.565,475.525v-3.909h3.909" transform="translate(0 0)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_323" data-name="Path 323" d="M313.611,475.525v-3.909H309.7" transform="translate(-8.046 0)" fill="none" stroke="#aaa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+﻿
+/* font styles END */
+/*TAB DESCRIPTION START */
+.description-tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 50px;
+    background-color: #f6f6f6;
+    width: 900px;
+    height: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 5%;
+    padding-top: 20px;
+    margin-left: 300px;
+    margin-bottom: 30px;
+}
+
+    .description-tab .text-hero {
+        font-family: "Roboto", sans-serif;
+    }

@@ -1,0 +1,227 @@
+﻿@page "/wishlist"
+
+
+<Kenakata.Shared.Wishlist.Wishlist_nav_header />
+<Kenakata.Shared.Textbanner.Wishlistbanner/>
+<div class="container" style="margin-top:1rem;">
+    <RadzenDataList WrapItems="true" AllowPaging="false" Data="@products" TItem="Product">
+        <Template Context="product">
+            <RadzenCard Style="width:350px; height:450px; padding:0; border:0; flex:none;">
+                <div id="item">
+                    <div id="removebar">
+                        <div id="removeitems">
+                            <i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" class="fas fa-times"></i>
+                            <p>Remove</p>
+                        </div>
+                    </div>
+                    <img src="@product.Picture" class="" alt="...">
+                    <footer id="footer">@product.ProductName</footer>
+                    <div class="main-div">
+
+                        <div id="removebar">
+                            <div id="removeitems">
+                                <i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" class="fas fa-times"></i>
+                                <p>Remove</p>
+                            </div>
+                        </div>
+
+                        <div class="second-div">
+
+                            <ul id="ul2" class="ul2">
+                                <li><a href=""><i id="c1" class="fas fa-circle"></i></a></li>
+                                <li><a href=""><i id="c2" class="fas fa-circle"></i></a></li>
+                                <li><a href=""><i id="c3" class="fas fa-circle"></i></a></li>
+                                <li><a href=""><i id="c4" class="fas fa-circle"></i></a></li>
+                            </ul>
+
+
+
+                            <ul class="ul1">
+                                <li><i class="fas fa-circle colors"></i></li>
+                                <li id="n1"><i @onclick="() => addtoWishlist(product.Id)" id="wishlistheart" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to favorites" class="far fa-heart"></i></li>
+                                <li><i @onclick="@(() => GoToProduct(product.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Go to product" class="fas fa-arrow-right"></i></li>
+                                <li><i data-bs-toggle="tooltip" data-bs-placement="left" title="Quick view" class="fas fa-search"></i></li>
+                                <li><i id="cart" @onclick="@(() => AddProduct(product.Id))" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to cart" class="fas fa-cart-plus"></i></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="third-div">
+                            <ul id="infodiv">
+                                <li><p id="newlook">New Look Mens fashion</p></li>
+                                <li><div id="categorydiv">Fashion</div></li>
+                                <li><p>$@product.OldPrize</p></li>
+                                <li><div class="fourth-div">$@product.Price</div></li>
+
+                            </ul>
+                            <ul id="stardiv">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="far fa-star"></i></li>
+                                <li><i class="far fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </RadzenCard>
+        </Template>
+    </RadzenDataList>
+</div>
+<Brands />
+
+@code {
+
+    List<Product> products { get; set; }
+    Product product { get; set; }
+    WishlistitemModel wishlist;
+
+
+
+    private int prodquant = 0;
+    private decimal subtotal = 0;
+    private decimal pricquan = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Notifier.Notify += OnNotify;
+        products = new List<Product>();
+        product = new Product();
+
+        wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        foreach (var i in wishlist.Items)
+        {
+            int id = i.Id;
+            product = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id}");
+
+            product.Price = Math.Truncate(product.Price);
+            product.OldPrize = Math.Truncate(product.OldPrize);
+
+            products.Add(product);
+        }
+
+    }
+
+    private void GoToProduct(int id)
+    {
+        NavManager.NavigateTo($"Product-Display/{id}", true);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("toolTips");
+        await JSRuntime.InvokeVoidAsync("showhidecolors");
+    }
+
+    private async Task addtoWishlist(int id)
+    {
+
+        var wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        if (wishlist.Items.Any(i => i.Id == id))
+        {
+            singlewishlistItem item = wishlist.Items.FirstOrDefault(i => i.Id == id);
+            wishlist.Items.Remove(item);
+            await session.SetItemAsync("WishlistItems", wishlist);
+            await updateWishlist();
+        }
+
+        else
+        {
+            wishlist.Items.Add(new singlewishlistItem { Id = id });
+            await session.SetItemAsync("WishlistItems", wishlist);
+            await JSRuntime.InvokeVoidAsync(identifier: "wishlistheart1");
+            await updateWishlist();
+        }
+
+    }
+
+    private async Task updateWishlist()
+    {
+        products = new List<Product>();
+        product = new Product();
+
+        wishlist = await session.GetItemAsync<WishlistitemModel>("WishlistItems");
+
+        foreach (var i in wishlist.Items)
+        {
+            int id = i.Id;
+            product = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id}");
+
+            product.Price = Math.Truncate(product.Price);
+            product.OldPrize = Math.Truncate(product.OldPrize);
+
+            products.Add(product);
+        }
+    }
+
+
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+    private async Task AddProduct(int id)
+    {
+
+
+        var cart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+
+        var product = await Http.GetFromJsonAsync<Product>($"https://kenakataapi.azurewebsites.net/api/products/{id}");
+
+        product.Price = Math.Truncate(product.Price);
+        product.OldPrize = Math.Truncate(product.OldPrize);
+
+        prodquant = 0;
+        pricquan = 0;
+        subtotal = 0;
+        foreach (var item in cart.Items)
+        {
+            prodquant = prodquant + item.Quantity;
+            pricquan = item.Product.Price * item.Quantity;
+            subtotal = subtotal + pricquan;
+        }
+        var list = cart.Items.Where(x => x.Product.Id == id);
+        @if (list.Any())
+        {
+            var specproduct = list.FirstOrDefault();
+            specproduct.Quantity = specproduct.Quantity + 1;
+            await session.SetItemAsync("MyShoppingCart", cart);
+            pricquan = specproduct.Product.Price * 1;
+        }
+        else
+        {
+            cart.Items.Add(new CartProduct { Product = product, Quantity = 1 });
+            await session.SetItemAsync("MyShoppingCart", cart);
+            pricquan = product.Price * 1;
+
+        }
+
+
+
+        prodquant = prodquant + 1;
+
+        subtotal = subtotal + pricquan;
+        subtotal = subtotal * cart.CouponDiscount;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = prodquant;
+
+    }
+
+
+
+
+}

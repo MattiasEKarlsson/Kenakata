@@ -1,0 +1,462 @@
+﻿<div class="empty-space"></div>
+<div class="mobile-cart-header">Checkout</div>
+<div class="container">
+
+    <EditForm Model="@billingInfoModel" OnValidSubmit="@PlaceOrder">
+        <DataAnnotationsValidator />
+        <div class="checkout-form">
+            <div class="billing-details">
+                <div class="d-flex mb-4">
+                    <p class="me-2">Returing customer?</p>
+                    <a class="checkout-links" href="login">Click here to login</a>
+                </div>
+                <div class="d-flex">
+                    <p class="me-2 hidden">Have a coupon?</p>
+                    <p class="checkout-links pointer hidden" @onclick="@DisplayCouponField">Click here to enter your code</p>
+                </div>
+                @if (Show)
+                {
+                    <div class="box-coupon-checkout">
+                        <p>If you have a coupon code, please apply it below.</p>
+                        <div class="coupon-submit">
+                            <input type="text" placeholder="Coupon code" @bind="couponDiscount" />
+                            <button class="coupon-btn" @onclick="ValidateCoupon">Apply Coupon</button>
+                        </div>
+                    </div>
+                }
+                <div class="billing-header">BILLING DETAILS</div>
+                <div class="row">
+                    <div class="col-6 form-group  mb-4">
+                        <label for="firstname">First name *</label>
+                        <InputText @bind-Value="billingInfoModel.FirstName" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.FirstName)" />
+                        </div>
+                    </div>
+                    <div class="col-6  form-group">
+                        <label for="lastname">Last name *</label>
+                        <InputText @bind-Value="billingInfoModel.LastName" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.LastName)" />
+                        </div>
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="company">Company name (optional)</label>
+                        <InputText @bind-Value="billingInfoModel.CompanyName" class="form-control mt-1 " />
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="country">Country / Region *</label><br>
+                        <select class="w-100 p-2" @bind="billingInfoModel.Country">
+                            <option value="Sweden">Sweden</option>
+                            <option value="England">England</option>
+                            <option value="United States" selected>United States (US)</option>
+                            <option value="China">China</option>
+                        </select>
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.Country)" />
+                        </div>
+                    </div>
+                    <div class="col-12 form-group mb-4">
+                        <label for="street">Street address *</label>
+                        <InputText @bind-Value="billingInfoModel.StreetAddress" class="form-control mt-1 " placeholder="House number or street name" />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.StreetAddress)" />
+                        </div>
+                        <label for=""></label>
+                        <InputText @bind-Value="billingInfoModel.AdditionalAddressInfo" class="form-control mt-1 " placeholder="Apartment,suite,unit,etc (optional)" />
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="city">Town / City *</label>
+                        <InputText @bind-Value="billingInfoModel.City" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.City)" />
+                        </div>
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="state">State *</label><br>
+                        <select class="w-100 p-2" @bind="billingInfoModel.State">
+                            <option value="Alabama">Alabama</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Texas">Texas</option>
+                            <option value="New York">New York</option>
+                        </select>
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="zip">ZIP *</label>
+                        <InputText @bind-Value="billingInfoModel.PostalCode" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.PostalCode)" />
+                        </div>
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="phone">Phone *</label>
+                        <InputText @bind-Value="billingInfoModel.Phone" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.Phone)" />
+                        </div>
+                    </div>
+                    <div class="col-12  form-group mb-4">
+                        <label for="email">Email address *</label>
+                        <InputText @bind-Value="billingInfoModel.Email" class="form-control mt-1 " />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(()=>billingInfoModel.Email)" />
+                        </div>
+                    </div>
+                    <div class="col-12  form-group hidden">
+                        <input type="checkbox" @onchange="DisplayRegisterField" id="cb-account" />
+                        <label for="cb-account">Create an account?</label>
+                        <div class="border-class"></div>
+                        <div class="register-form">
+                            @if (ShowReg)
+                            {
+                                <Register />
+                            }
+                        </div>
+
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="checkbox" @onchange="DisplayShippingField" id="cb-different-address" />
+                        <label for="cb-different-address" class="different-address">SHIP TO A DIFFRENT ADDRESS?</label>
+                    </div>
+                    @if (ShowShipping)
+                    {
+                        <div class="billing-header">Shipping DETAILS</div>
+                        <div class="col-6 form-group  mb-4">
+                            <label for="firstname">First name *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingFirstName" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingFirstName)" />
+                            </div>
+                        </div>
+                        <div class="col-6  form-group">
+                            <label for="lastname">Last name *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingLastName" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingLastName)" />
+                            </div>
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="company">Company name (optional)</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingCompanyName" class="form-control mt-1 " />
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="country">Country / Region *</label><br>
+                            <select class="w-100 p-2" @bind="billingInfoModel.ShippingCountry">
+                                <option value="Sweden">Sweden</option>
+                                <option value="England">England</option>
+                                <option value="United States" selected>United States (US)</option>
+                                <option value="China">China</option>
+                            </select>
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingCountry)" />
+                            </div>
+                        </div>
+                        <div class="col-12 form-group mb-4">
+                            <label for="street">Street address *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingStreetAddress" class="form-control mt-1 " placeholder="House number or street name" />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingStreetAddress)" />
+                            </div>
+                            <label for=""></label>
+                            <InputText @bind-Value="billingInfoModel.ShippingAdditionalAddressInfo" class="form-control mt-1 " placeholder="Apartment,suite,unit,etc (optional)" />
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="city">Town / City *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingCity" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingCity)" />
+                            </div>
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="state">State *</label><br>
+                            <select class="w-100 p-2" @bind="billingInfoModel.ShippingState">
+                                <option value="Alabama">Alabama</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Texas">Texas</option>
+                                <option value="New York">New York</option>
+                            </select>
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="zip">ZIP *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingPostalCode" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingPostalCode)" />
+                            </div>
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="phone">Phone *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingPhone" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingPhone)" />
+                            </div>
+                        </div>
+                        <div class="col-12  form-group mb-4">
+                            <label for="email">Email address *</label>
+                            <InputText @bind-Value="billingInfoModel.ShippingEmail" class="form-control mt-1 " />
+                            <div class="text-danger">
+                                <ValidationMessage For="@(()=>billingInfoModel.ShippingEmail)" />
+                            </div>
+                        </div>
+
+
+                    }
+                    <div class="col-12 form-group">
+                        <p class="mb-2">Order notes (optional))</p>
+                        <textarea name="" rows="8" class="w-100"></textarea>
+                    </div>
+                    <div class="empty-footer"></div>
+                </div>
+            </div>
+
+            <div class="your-order" id="your-order">
+                <h2 class="order-header">YOUR ORDER</h2>
+                <div class="order-display">
+                    <div class="d-flex justify-content-between border-order">
+                        <div class="font-green fw-bold">PRODUCT</div>
+                        <div class="font-green fw-bold ">SUBTOTAL</div>
+                    </div>
+                    @if (mycart != null)
+                    {
+                        foreach (var item in mycart.Items)
+                        {
+                            <div class="d-flex justify-content-between border-order-ud">
+                                <div>@item.Product.ProductName</div>
+                                <div>$@item.Product.Subtotal</div>
+                            </div>
+                        }
+
+                    }
+                    <div class="d-flex justify-content-between border-order-ud">
+                        <div class="fw-medium font-green">Subtotal</div>
+                        <div class="fw-medium font-green">$@Notifier.Subtotal</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center border-order-ud ">
+                        <div class="fw-bold mt-2">Shipping</div>
+                        <div class="text-end width-200">
+
+                            <label for="flat-rate">
+                                Flat rate:<span class="font-green ms-1 me-1">$20.00</span>
+                                <input type="radio" id="flat-rate" class="mt-3 mb-2" name="shipping" @onchange="@(() => CalculateWithShipping(20))" checked /><br>
+                            </label>
+                            <label for="free-shipping" class="me-1">Free shipping</label>
+                            <input type="radio" id="free-shipping" class="mt-3 mb-2" name="shipping" @onchange="@(() => CalculateWithShipping(0))" /> <br>
+                            <label for="local-pickup">Local pickup<span class="font-green ms-1 me-1">$25.00</span></label>
+                            <input type="radio" id="local-pickup" class="mt-3 mb-2" name="shipping" @onchange="@(() => CalculateWithShipping(25))" /><br>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between  border-order-ud border-green">
+                        <div class="fw-bold font-green fs-18">Subtotal</div>
+                        <div class="fw-bold font-green fs-18">$@Notifier.SubWithShip</div>
+                    </div>
+                    <div class="border-order-ud">
+                        <div>
+                            <input type="radio" id="direct-to-bank" class="mt-3 mb-2" name="payment" checked>
+                            <label for="direct-to-bank">Direct bank transfer </label><br>
+                        </div>
+
+                        <input type="radio" id="check-payment" class="mt-3 mb-2" name="payment">
+                        <label for="check-payment">Check payment </label><br>
+
+                        <input type="radio" id="cash" class="mt-3 mb-2" name="payment">
+                        <label for="cash">Cash on delivery </label><br>
+
+                        <input type="radio" id="paypal" class="mt-3 mb-2" name="payment">
+                        <label for="paypal">Paypal <img class="ms-2 me-2 mb-1" src="/Assets/Images/Fredrik/ShoppingCartListImages/PayPal logo.svg" alt=""><span>What is PayPal?</span></label>
+
+                    </div>
+                    <div class="border-order-ud">
+                        <div>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <span class="font-green">privacy policy.</span></div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="checkbox">
+                        <label>I have read and agree to the website <span class="font-green">terms and conditions *</span></label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="order-btn">PLACE ORDER</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </EditForm>
+</div>
+
+
+@code{
+
+    public BillingInfoModel billingInfoModel;
+    private bool Show { get; set; } = false;
+    private bool ShowReg { get; set; } = false;
+    private bool ShowShipping { get; set; } = false;
+    private ShoppingCart mycart;
+    private decimal subtotal;
+    private decimal subtotalwshipp;
+    private string couponDiscount;
+    private int productcount = 0;
+    private decimal prodquantprice = 0;
+
+    private void DisplayCouponField()
+    {
+
+
+        @if (!Show)
+        {
+            Show = true;
+        }
+        else
+        {
+            Show = false;
+        }
+    }
+
+    private void DisplayRegisterField()
+    {
+
+
+        @if (!ShowReg)
+        {
+            ShowReg = true;
+        }
+        else
+        {
+            ShowReg = false;
+        }
+    }
+
+    private void DisplayShippingField()
+    {
+
+
+        @if (!ShowShipping)
+        {
+            ShowShipping = true;
+        }
+        else
+        {
+            ShowShipping = false;
+        }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Notifier.Notify += OnNotify;
+
+        mycart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+
+
+
+
+        switch (mycart.ShippingPrice)
+        {
+            case 25:
+                await CalculateWithShipping(25);
+                break;
+
+            case 0:
+                await CalculateWithShipping(0);
+                break;
+
+            default:
+                await CalculateWithShipping(20);
+                break;
+
+        }
+        billingInfoModel = new BillingInfoModel();
+
+    }
+
+    private async Task GetShoppingCartQuantitySubTotal()
+    {
+        productcount = 0;
+        subtotal = 0;
+        @foreach (var item in mycart.Items)
+        {
+            productcount = productcount + item.Quantity;
+            prodquantprice = item.Product.Price * item.Quantity;
+            subtotal = subtotal + prodquantprice;
+        }
+        subtotal = subtotal * mycart.CouponDiscount;
+        Notifier.Subtotal = subtotal;
+        Notifier.Counter = productcount;
+        await CalculateWithShipping(mycart.ShippingPrice);
+
+
+
+    }
+
+    private async Task CalculateWithShipping(decimal price)
+    {
+        Notifier.SubWithShip = Notifier.Subtotal + price;
+        mycart.ShippingPrice = price;
+        await session.SetItemAsync("MyShoppingCart", mycart);
+    }
+
+    private void PlaceOrder()
+    {
+        NavManager.NavigateTo("/ordercomplete");
+    }
+
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+    private async Task ValidateCoupon()
+    {
+        decimal discount;
+
+        if (mycart.CouponDiscount == 1)
+        {
+            switch (couponDiscount)
+            {
+                case "KenaKata5":
+                    discount = Convert.ToDecimal(0.95);
+                    mycart.CouponDiscount = discount;
+                    await session.SetItemAsync("MyShoppingCart", mycart);
+                    await GetShoppingCartQuantitySubTotal();
+                    break;
+
+                case "KenaKata10":
+                    discount = Convert.ToDecimal(0.9);
+                    mycart.CouponDiscount = discount;
+                    await session.SetItemAsync("MyShoppingCart", mycart);
+                    await GetShoppingCartQuantitySubTotal();
+                    break;
+
+                case "KenaKata15":
+                    discount = Convert.ToDecimal(0.85);
+                    mycart.CouponDiscount = discount;
+                    await session.SetItemAsync("MyShoppingCart", mycart);
+                    await GetShoppingCartQuantitySubTotal();
+                    break;
+
+                case "KenaKata20":
+                    discount = Convert.ToDecimal(0.8);
+                    mycart.CouponDiscount = discount;
+                    await session.SetItemAsync("MyShoppingCart", mycart);
+                    await GetShoppingCartQuantitySubTotal();
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+
+    }
+
+
+}

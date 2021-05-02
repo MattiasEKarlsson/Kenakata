@@ -1,0 +1,248 @@
+﻿.checkout-form{
+    display:flex;
+    flex-direction:column;
+}
+
+@media (min-width:980px) {
+    .checkout-form {
+        flex-direction: row;
+    }
+}
+
+@media (min-width:980px){
+    .billing-details {
+        width:50%;
+    }
+}
+
+@media (min-width:980px) {
+    .your-order {
+        width: 50%;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width:980px) {
+    .billing-details .hidden {
+        display: block;
+    }
+}
+
+.register-form{
+    display:flex;
+    position:relative;
+    right:50px;
+}
+
+.empty-space {
+    display:none;
+    height: 70px;
+}
+
+@media (min-width:1200px) {
+    .empty-space {
+        display: block;
+        height: 70px;
+    }
+}
+
+
+
+.cart-btn {
+    margin-top: 30px;
+    background-color: #20D3C2;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 13px 20px 13px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+}
+
+.box-coupon {
+
+    margin-top: 45px;
+    width: 445px;
+    height: 150px;
+    border: #E3E3E3;
+    border-style: dashed;
+    padding: 30px;
+}
+
+.coupon-submit {
+    width: 385px;
+    border-radius: 40px;
+    background: transparent;
+    box-shadow: 0 4px 20px -2px #e9e9e9;
+    padding: 5px;
+}
+
+    .coupon-submit input {
+        width: 225px;
+        height: 20px;
+        padding: 10px 10px;
+        padding-left: 20px;
+        border: 0;
+        border-radius: 40px;
+        font-size: 14px;
+    }
+
+.coupon-btn {
+    background-color: #20D3C2;
+    color: #FFFFFF;
+    width: 145px;
+    border: none;
+    padding: 5px 13px 5px 13px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.update-btn {
+    background-color: #0E153D;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 30px 14px 30px;
+    border-radius: 60px;
+}
+
+#cart-list img {
+    margin-right: 10px;
+}
+
+.billing-details {
+    
+    padding: 15px;
+}
+
+.checkout-links {
+    text-decoration: none;
+    color: #20D3C2;
+}
+
+.pointer{
+    cursor:pointer;
+}
+
+.billing-header {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.box-coupon-checkout {
+    display: block;
+    margin-top: 14px;
+    width: 445px;
+    height: 150px;
+    border: #E3E3E3;
+    border-style: dashed;
+    padding: 30px;
+}
+
+
+
+.border-class {
+    border-bottom: 2px solid #E3E3E3;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.different-address {
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+
+.order-display {
+    border: 3px solid black;
+    border-top: none !important;
+    border-style: dashed;
+    padding: 30px
+}
+
+.order-header {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 500;
+    background-color: #0E153D;
+    color: #20D3C2;
+    margin-bottom: 0;
+    padding: 26px 10px 26px 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.font-green {
+    color: #20D3C2
+}
+
+.border-order {
+    border-bottom: 1px solid #E3E3E3;
+    padding-bottom: 20px;
+}
+
+.fw-medium {
+    font-weight: 500;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.width-200{
+    width:200px;
+}
+
+.border-order-ud {
+    border-bottom: 1px solid #E3E3E3;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.border-green {
+    border-color: #20D3C2;
+}
+
+.order-btn {
+    width: 100%;
+    background-color: #20D3C2;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 15px 15px 15px;
+    border-radius: 50px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.mobile-cart-header {
+    background-color: #0E153D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .mobile-cart-header {
+        display: none;
+    }
+}

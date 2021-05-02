@@ -1,0 +1,199 @@
+﻿.contact-page {
+    color: white;
+    height: 1300px;
+}
+
+#map {
+    position: absolute;
+   
+}
+
+.contact-page .all-box {
+    background-color: #0e153d;
+    width: 1100px;
+    height: 770px;
+    border-radius: 1%;
+    position: relative;
+    top: 26rem;
+    z-index: 1;
+    /*margin-bottom: 30rem;*/
+}
+
+    .contact-page .form-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        border-bottom: 1px solid;
+        border-color: #20d3c2;
+        padding-top: 20px;
+    }
+
+    .contact-page .area-1 {
+        margin-left: 3rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .contact-page .facebook {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contact-page .area-2 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .contact-page .phone {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contact-page .area-3 {
+        margin-right: 3rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .contact-page .envelope {
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+
+    .contact-page .lower-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .contact-page .hero-text {
+        font-family: "Roboto", sans-serif;
+        margin-right:3rem;
+    }
+
+    .contact-page .text-left {
+        margin-top: 2rem;
+        font-size: 16px;
+    }
+
+    .contact-page #h2 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .contact-page #h1 {
+        color: #20d3c2;
+        font-size: 24px;
+    }
+
+    .contact-page .social-media {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+        .contact-page .social-media i {
+            padding-left: 10px;
+            color: #35c0b2;
+        }
+
+            .contact-page .social-media i:hover {
+                color: #f6f6f6;
+            }
+
+    .contact-page .contact-form {
+        /*appearance: none;*/
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border-radius: 3%;
+        border: none;
+        width: 540px;
+        height: 706px;
+        font-family: "Roboto", sans-serif;
+        padding-left: 100px;
+        padding-right: 40px;
+        padding-top: 20px;
+    }
+
+    .contact-page #product {
+        width: 450px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    .contact-page .contact-name {
+        width: 450px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    .contact-page .contact-email {
+        width: 450px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    .contact-page .contact-subject {
+        width: 450px;
+        height: 50px;
+        border-radius: 3%;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    .contact-page .review-bubble {
+        height: 200px;
+        width: 400px;
+        border-radius: 3%;
+        padding-left: 15px;
+        padding-top: 5px;
+        resize: none;
+    }
+
+    .contact-page .input-btn {
+        background-color: #20d3c2;
+        color: white;
+        border-radius: 30px;
+        border: none;
+        text-align: center;
+        font-weight: bold;
+        padding: 15px;
+        font-size: 20px;
+        width: 15rem;
+    }
+
+        .contact-page .input-btn:hover {
+            background: #35c0b2;
+            color: white;
+            -webkit-transition-delay: 100ms;
+            transition-delay: 100ms;
+        }
+
+        #contactformm{
+            padding:3rem;
+        }

@@ -1,0 +1,27 @@
+﻿/* Tabs-Products */
+#tab-section .greenbtn {
+    background-color: #20D3C2;
+    color: white;
+}
+#tab-section .bluebtn {
+    background-color: #0E153D;
+    color: white;
+}
+
+#tab-section #line {
+    color: aquamarine;
+    position: relative;
+    top: 50px;
+}
+
+#tab-section .bottonborder {
+    border-bottom: 3px solid #20D3C2;
+    width: 100%;
+}
+
+#tab-section .tabs {
+    position: relative;
+    top: 7px;
+}
+
+/* Tabs-Products END */

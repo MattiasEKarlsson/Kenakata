@@ -1,0 +1,103 @@
+﻿/* Subscribe */
+
+
+    #subsection {
+        width: 100%;
+        background: #F6F6F6;
+    }
+
+        #subsection .container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+
+        #subsection .empty {
+            background: #080024;
+            background: linear-gradient(34deg, #080024 0%, #00ffef 100%);
+            width: 540px;
+            height: 316px;
+            display:none
+        }
+        @media (min-width:768px){
+            #subsection .empty {
+                
+                display:block;
+            }
+        }
+
+
+    .subdiv {
+        width: 570px;
+        margin-top:5rem;
+    }
+
+        .subdiv h3 {
+            font-family: "Play", sans-serif;
+            color: #20D3C2;
+        }
+
+        .subdiv span {
+            color: #0E153D;
+        }
+
+        .subdiv input {
+            width: 270px;
+            height: 46px;
+            background-color: #FFFFFF;
+            border-radius: 50px;
+            border: 2px solid #E3E3E3;
+            font-size: 14px;
+            padding: 0 1rem;
+            margin-bottom:5rem;
+        }
+        @media (min-width:768px){
+            .subdiv input {
+                width: 450px;
+                margin-bottom: 0rem;
+            }
+        }
+
+        .subdiv button {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 1px;
+            width: 107px;
+            height: 38px;
+            background-color: #20D3C2;
+            color: white;
+            border-radius: 30px;
+            font-size: 1rem;
+            border: none;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+            .subdiv button:hover {
+                background: #0E153D;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+            }
+
+        .subdiv label {
+            position: relative;
+        }
+
+        .subdiv h3 {
+            color: #20D3C2;
+        }
+
+        .subdiv p {
+            font-size: 1rem;
+        }
+
+
+
+
+
+/* Subscribe ENDS */

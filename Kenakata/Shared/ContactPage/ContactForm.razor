@@ -1,0 +1,126 @@
+﻿@using System.ComponentModel.DataAnnotations;
+
+<section class="contact-page">
+    <div id="map" style="height:500px;width:100%;">
+    </div>
+    <div class="all-box container">
+        <div class="form-box">
+
+
+            <div class="area-1">
+                <div class="facebook">
+                    <a href="#"><i class="fa fa-home fa-2x"></i></a>
+                </div>
+                <p>
+                    252, Chagalnaiya<br>
+                    Feni-2500, Bangladesh
+                </p>
+            </div>
+            <div class="area-2">
+                <div class="phone">
+                    <a href="#"><i class="fa fa-phone fa-2x"></i></a>
+                </div>
+                <p>
+                    +880-123456789<br>
+                    +880-123456789
+                </p>
+            </div>
+            <div class="area-3">
+                <div class="envelope">
+                    <a href="#"><i class="fa fa-envelope fa-lg"></i></a>
+                </div>
+                <p>
+                    kenkataservice@gmail.com
+                </p>
+            </div>
+
+        </div>
+        <div class="lower-box">
+            <div class="hero-text">
+                <h1 id="h1">Get in touch</h1>
+                <p class="text-left">
+                    We have world-class, flexible support via live chat, email<br> and phone.
+                    We guarantee that you’ll be able to have any<br> issue resolved within 24 hours.
+                    You can contact support<br> immediately here.
+                </p>
+                <h2 id="h2">Follow us</h2><br>
+                <div class="social-media">
+                    <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+
+
+            <div id="contactformm">
+                <EditForm Model="@contact" OnValidSubmit="SendContact">
+                    <DataAnnotationsValidator/>
+
+                    <select id="product" name="product">
+                        <option class="hey" disabled selected>Product Category</option>
+                        <option value="hats">Hats</option>
+                        <option value="skirts">Skirts</option>
+                        <option value="hoodies">Hoodies</option>
+                    </select><br>
+                             <div>
+                                 <ValidationMessage For="@(()=>contact.Name)" />
+                                 <input class="contact-name" placeholder="Name" type="text" id="name" @bind="contact.Name">
+                             </div>
+                             <div>
+                                 <ValidationMessage For="@(()=>contact.Email)"/>
+                                 <input class="contact-email" placeholder="E-mail" type="text" id="email" @bind="contact.Email">
+                             </div>
+                             <div>
+                                 <ValidationMessage For="@(()=>contact.Subject)"/>
+                                 <input class="contact-subject" placeholder="Subject" type="text" id="subject" @bind="contact.Subject">
+                             </div>
+                             <div>
+                                 <ValidationMessage For="@(()=>contact.Message)"/>
+                                 <textarea class="review-bubble" placeholder="Message..." @bind="contact.Message"></textarea>
+                             </div>
+                    
+
+
+                    <input class="input-btn" type="submit" value="SEND MESSAGE">
+                </EditForm>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+@code {
+
+    private Contact contact;
+
+    private async Task SendContact()
+    {
+        await Http.PostAsJsonAsync<Contact>("https://kenkataemailapi.azurewebsites.net/sendcontact", contact);
+        contact = new Contact();
+    }
+
+
+
+    protected override void OnInitialized()
+    {
+        contact = new Contact();
+    }
+
+    public class Contact
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "Email is required")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Enter a valid Emailaddress")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Subject is required")]
+        public string Subject { get; set; }
+        [Required(ErrorMessage = "Message is required")]
+        public string Message { get; set; }
+    }
+
+}

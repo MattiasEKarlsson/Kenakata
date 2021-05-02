@@ -1,0 +1,54 @@
+﻿#notfoundsection {
+    height: 680px;
+    background: #F6F6F6;
+    padding: 100px;
+    font-family: "Roboto", sans-serif;
+}
+
+    #notfoundsection .container img {
+        height: 133px;
+        width: 278px;
+        margin: 1rem;
+        
+    }
+    @media (min-width:768px){
+        #notfoundsection .container img {
+            height: 267px;
+            width: 557px;
+            margin: 3rem;
+            
+        }
+    }
+    #notfoundsection .container p {
+        font-size: 0.8rem;
+    }
+    @media(min-width:768px){
+        #notfoundsection .container p {
+            font-size: 1.8rem;
+        }
+    }
+    #notfoundsection .container button {
+        font-size: 0.5rem;
+        background: #20D3C2;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 25px;
+        margin: 0.5rem;
+        border: none;
+        color: white;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+@media(min-width:768px) {
+    #notfoundsection .container button {
+        font-size: 1.2rem;
+        margin: 1rem;
+    }
+}
+
+        #notfoundsection .container button:hover {
+            background: #0E153D;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }

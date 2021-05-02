@@ -1,0 +1,55 @@
+﻿<section class="my-account-register">
+    <div class="register-box">
+        <h1 class="h1">REGISTER</h1>
+        <div class="text-1">
+            Registering for this site allows you to access your order status and
+            history.<br />
+            Just fill in the fields below, and we’ll get a new account set up for
+            you in no<br />
+            time. We will only ask you for information necessary to make the
+            purchase<br />
+            process faster and easier.
+        </div>
+        <EditForm Model="@registerModel" OnValidSubmit="@SendRegForm">
+            <DataAnnotationsValidator />
+            <label for="lname">Username<span>*</span></label><br />
+            <input @bind="registerModel.UserName" class="user-name" /><br />
+            <div class="text-danger">
+                <ValidationMessage For="@(()=>registerModel.UserName)" />
+            </div>
+            <label for="lname">Email<span>*</span></label><br />
+            <input @bind="registerModel.Email" class="email" /><br />
+            <div class="text-danger">
+                <ValidationMessage For="@(()=>registerModel.Email)" />
+            </div>
+            <label for="lname">Password<span>*</span></label><br />
+            <input type="password" @bind="registerModel.Password" class="password" /><br />
+            <div class="text-danger">
+                <ValidationMessage For="@(()=>registerModel.Password)" />
+            </div>
+
+            <div class="text-2">
+                Your personal data will be used to support your experience<br />
+                throughout this website, to manage access to your account, and for<br />
+                other purposes described in our
+                <a id="privacy" href="#">privacy policy.</a>
+            </div>
+            <input class="input-btn" type="submit" value="REGISTER" />
+        </EditForm>
+    </div>
+</section>
+
+@code {
+    public RegisterModel registerModel;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        registerModel = new RegisterModel();
+    }
+
+    private void SendRegForm()
+    {
+        NavManager.NavigateTo("/reg_completed");
+    }
+}

@@ -1,0 +1,26 @@
+﻿@page "/shop"
+@page "/shop/category/{_url}"
+@page "/shop/{_url}"
+
+
+
+
+<NewCustomer />
+<ListSortingDiv />
+<StickyButton />
+<div class="container">
+    <SortingSideDiv />
+
+</div>
+<Subscribe />
+<Brands />
+
+
+
+@code {
+    [Parameter]
+    public string _url { get; set; }
+
+
+
+}

@@ -1,0 +1,98 @@
+﻿<tr>
+        <th scope="row">
+            <div class="align-items-center">
+                <i class="fa fa-times-circle  delete-btn " @onclick="@(() => RemoveItem(Product))"> </i>
+            </div>
+        </th>
+        <td class="w-50">
+            <div class="d-flex align-items-center">
+                <img src=@Product.Product.Picture alt=""> <p class="text-wrap">@Product.Product.ProductName</p>
+            </div>
+        </td>
+        <td class="text-end">$@Product.Product.Price</td>
+        <td>
+            <div class="input-group quantity-shopping-cart ">
+                <button class="minus-btn remove-quan" type="button" name="button"  @onclick="@(() => Remove(Product.Product.Id))">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input type="text" name="name" id="@($"product-quantity{Product.Product.Id}")" value="@Product.Quantity">
+                <button class="plus-btn me-3 add-quan" type="button" name="button"  @onclick="@(() => Add(Product.Product.Id))">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </td>
+        <td class="subtotal">$@Product.Product.Subtotal</td>
+    </tr>
+
+@code {
+    [Parameter]
+    public CartProduct Product { get; set; }
+    [Parameter]
+    public EventCallback<int> OnProductDeleted { get; set; }
+    [Parameter]
+    public EventCallback<int> OnProductQuantityAdded { get; set; }
+    [Parameter]
+    public EventCallback<int> OnProductQuantityRemoved { get; set; }
+
+
+    private ShoppingCart mycart;
+    private int currentCount;
+    private List<TemporaryQuantityModel> quantitylist = new List<TemporaryQuantityModel>();
+
+
+
+    //public async Task AddValue()
+    //{
+    //    await Notifier.AddTolist(value);
+    //}
+
+    public async Task OnNotify()
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+
+    protected override void OnInitialized()
+    {
+        Notifier.Notify += OnNotify;
+    }
+
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
+    }
+
+    private async Task RemoveItem(CartProduct item)
+    {
+
+        await OnProductDeleted.InvokeAsync(item.Product.Id);
+
+
+
+    }
+
+
+
+
+    private async Task GetCart()
+    {
+        mycart = await session.GetItemAsync<ShoppingCart>("MyShoppingCart");
+    }
+
+    private async Task Remove(int id)
+    {
+        await OnProductQuantityRemoved.InvokeAsync(id);
+
+    }
+
+
+    private async Task Add(int id)
+    {
+        await OnProductQuantityAdded.InvokeAsync(id);
+
+    }
+}

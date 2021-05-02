@@ -1,0 +1,24 @@
+﻿
+#regcompleted img {
+    width: 150px;
+}
+
+.qqq button {
+    margin-top:5rem;
+    height:3rem;
+    width:13rem;
+    font-size:1rem;
+    background-color: #20D3C2;
+    color: white;
+    border-radius: 30px;
+    font-size: 1rem;
+    border: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+    .qqq button:hover {
+        background: #0E153D;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }

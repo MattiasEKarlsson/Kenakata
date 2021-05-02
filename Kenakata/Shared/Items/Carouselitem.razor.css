@@ -1,0 +1,167 @@
+﻿/*.container {
+    display: block;
+    position: relative;
+}*/
+
+#item {
+    width: 350px;
+    height: 400px;
+    display: block;
+}
+
+    #item #footer {
+        border-radius: 0px 0px 10px 10px;
+        padding-top: .8rem;
+        width: 350px;
+        height: 50px;
+        background: #0E153D;
+        color: white;
+        text-align: center;
+    }
+
+    #item img {
+        width: 350px;
+        height:350px;
+        border-radius: 10px 10px 0px 0px;
+        display: block;
+        background-color: #EEEEEE;
+    }
+
+    #item .main-div {
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 350px;
+        height: 400px;
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(14, 21, 61, 0.9);
+        border-radius: 10px;
+    }
+
+        #item .main-div .second-div {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1rem;
+            margin-top: 1rem;
+        }
+
+            #item .main-div .second-div .addtocart {
+                display: none;
+                background-color: #20D3C2;
+                width: 6rem;
+                height: 2rem;
+                justify-content: center;
+                align-items: center;
+                align-self: flex-end;
+                z-index: 2;
+                border-radius: 10px 15px 15px 10px;
+                margin-bottom: .7rem;
+                margin-right: .5rem;
+            }
+
+                #item .main-div .second-div .addtocart p {
+                    margin: 0;
+                    color: #FFFFFF;
+                }
+
+            #item .main-div .second-div .ul1 {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                width: 2.5rem;
+                height: 10rem;
+                border-radius: 23px;
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+
+                #item .main-div .second-div .ul1 li {
+                    display: flex;
+                    align-self: center;
+                    font-size: 1rem;
+                    margin: .4rem;
+                }
+
+                    #item .main-div .second-div .ul1 li i {
+                        color: #AAAAAA;
+                        cursor: pointer;
+                    }
+
+                    #item .main-div .second-div .ul1 li:first-child i {
+                        color: blue;
+                        margin-top: .4rem;
+                    }
+
+                    #item .main-div .second-div .ul1 li:last-child i:hover {
+                        color: #20D3C2;
+                    }
+
+            #item .main-div .second-div .ul2 {
+                background: #EEEEEE;
+                display: none;
+                list-style: none;
+                margin-top: .5rem;
+                margin-right: .2rem;
+                border-radius: 10px 15px 15px 10px;
+                padding: 0 .2rem 0 .2rem;
+                height: 2rem;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+
+                #item .main-div .second-div .ul2 li {
+                    font-size: .8rem;
+                    margin: 0;
+                    margin-left: .15rem;
+                    margin-right: .15rem;
+                }
+
+                    #item .main-div .second-div .ul2 li #c1 {
+                        color: red;
+                    }
+
+                    #item .main-div .second-div .ul2 li #c2 {
+                        color: gray;
+                    }
+
+                    #item .main-div .second-div .ul2 li #c3 {
+                        color: black;
+                    }
+
+                    #item .main-div .second-div .ul2 li #c4 {
+                        color: violet;
+                    }
+
+        #item .main-div .third-div {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            position: absolute;
+            bottom: 3.5rem;
+            justify-content: flex-end;
+        }
+
+            #item .main-div .third-div .fourth-div {
+                color: #20D3C2;
+                margin-left: 1.5rem;
+                margin-right: 4rem;
+            }
+
+            #item .main-div .third-div ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                list-style: none;
+                justify-content: flex-end;
+                color: #20D3C2;
+            }
+
+    #item:hover .main-div {
+        opacity: 100;
+    }
